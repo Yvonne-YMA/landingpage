@@ -1,0 +1,569 @@
+/* Brand palette — etwas satter (~30 %), Türkis klar „Paradise / Lagunenwasser“ */
+:root {
+  --brand-blue: #0a4d84;
+  --brand-turquoise: #17a3be;
+  --brand-yellow: #f0bd65;
+  --brand-rose: #c8438a;
+
+  --ocean-deep: var(--brand-blue);
+  --ocean-mid: #3d8f9e;
+  --wave-sky: #9fd4e0;
+  --sage: var(--brand-turquoise);
+  --mint: #b5d4bf;
+  --rose: var(--brand-rose);
+  --rose-soft: #e8a4b8;
+  --blush-wash: rgba(231, 168, 188, 0.25);
+  --sun: var(--brand-yellow);
+  --sun-soft: #f5e8c8;
+  --lavender: #9e8eb5;
+  --lavender-mist: rgba(158, 142, 181, 0.18);
+  --cream: #fbfaf7;
+  --paper: #ffffff;
+  --ink: #2a4a52;
+  --ink-muted: #5c757c;
+
+  --font-display: "The Girl Next Door", cursive;
+  --font-body: "Quicksand", system-ui, sans-serif;
+
+  --radius-lg: 20px;
+  --radius-sm: 12px;
+  --shadow-soft: 0 18px 40px rgba(39, 104, 120, 0.08);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--cream);
+}
+
+.bg-soft {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 90% 70% at 10% 0%, rgba(159, 212, 224, 0.35) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 60% at 95% 15%, var(--lavender-mist) 0%, transparent 50%),
+    radial-gradient(ellipse 70% 50% at 50% 100%, var(--blush-wash) 0%, transparent 45%),
+    var(--cream);
+}
+
+.wrap {
+  width: min(56rem, calc(100% - 2.5rem));
+  margin-inline: auto;
+}
+
+/* Header */
+.site-header {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(39, 104, 120, 0.1);
+  padding: 1.5rem 1.25rem 1.75rem;
+}
+
+.header__inner {
+  display: flex;
+  justify-content: center;
+  max-width: 72rem;
+  margin-inline: auto;
+}
+
+.brand {
+  display: block;
+  text-decoration: none;
+}
+
+.brand__logo {
+  display: block;
+  width: min(520px, 96vw);
+  height: auto;
+}
+
+/* Editorial intro — vertikal zentriert, alles mittig, großzügiger Rhythmus */
+.intro-editorial {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: min(88svh, 52rem);
+  padding: clamp(2.5rem, 8vw, 4.5rem) 0 clamp(2.75rem, 7vw, 4.5rem);
+  box-sizing: border-box;
+  background:
+    linear-gradient(
+      180deg,
+      var(--paper) 0%,
+      var(--cream) 18%,
+      color-mix(in srgb, var(--cream) 85%, white 15%) 55%,
+      color-mix(in srgb, white 93%, var(--brand-turquoise) 7%) 100%
+    );
+}
+
+.intro-editorial__wrap {
+  width: min(42rem, calc(100% - 2.5rem));
+  margin-inline: auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0;
+}
+
+.intro-editorial__lead {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.intro-editorial__title {
+  margin: 0;
+  max-width: 38rem;
+  margin-inline: auto;
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 5.2vw, 2.75rem);
+  font-weight: 400;
+  line-height: 1.22;
+  color: var(--brand-blue);
+  letter-spacing: 0.025em;
+  text-wrap: balance;
+}
+
+.intro-editorial__rule {
+  width: min(11rem, 55%);
+  height: 2px;
+  margin: clamp(1.75rem, 4.5vw, 2.5rem) auto clamp(1.65rem, 4vw, 2.35rem);
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    var(--brand-blue),
+    var(--brand-turquoise),
+    var(--brand-yellow),
+    var(--brand-rose)
+  );
+  opacity: 0.88;
+}
+
+.intro-editorial__dek {
+  margin: 0 auto;
+  max-width: 34rem;
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(0.98rem, 2.2vw, 1.125rem);
+  line-height: 1.68;
+  letter-spacing: 0.045em;
+  color: var(--ink-muted);
+  text-wrap: balance;
+}
+
+.intro-editorial__bridge {
+  height: clamp(2.75rem, 6vw, 4rem);
+  width: 100%;
+  max-width: min(30rem, 100%);
+  margin: clamp(2.25rem, 5.5vw, 3.25rem) auto clamp(2rem, 4.5vw, 2.75rem);
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    color-mix(in srgb, white 88%, var(--brand-turquoise) 6%) 55%,
+    color-mix(in srgb, white 92%, var(--mint) 8%) 100%
+  );
+  border-radius: 999px 999px 0 0 / 40% 40% 0 0;
+  opacity: 0.95;
+}
+
+.intro-editorial__chapter {
+  margin: 0;
+  padding: 0 0 clamp(0.35rem, 1.2vw, 0.65rem);
+  max-width: 36rem;
+  margin-inline: auto;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 3.5vw, 1.9rem);
+  font-weight: 400;
+  line-height: 1.3;
+  text-align: center;
+  letter-spacing: 0.04em;
+  color: color-mix(in srgb, var(--brand-blue) 72%, var(--brand-turquoise) 28%);
+  text-wrap: balance;
+}
+
+.intro-editorial__brand-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: clamp(0.45rem, 1.75vw, 0.78rem);
+  margin: clamp(0.65rem, 2vw, 1.1rem) 0 clamp(0.25rem, 1vw, 0.65rem);
+  padding: 0;
+}
+
+.intro-editorial__dot-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.intro-editorial__dot {
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--intro-dot);
+}
+
+.intro-editorial__dot--sm {
+  width: 10px;
+  height: 10px;
+}
+
+.intro-editorial__dot--lg {
+  width: 16px;
+  height: 16px;
+}
+
+.intro-editorial + .topic-band {
+  border-top: none;
+}
+
+.section {
+  padding: 3rem 0;
+}
+
+.section--work {
+  position: relative;
+  padding-top: clamp(3rem, 7vw, 4.25rem);
+  padding-bottom: 4rem;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--cream) 93%, var(--brand-yellow) 7%) 0%,
+    var(--cream) 72%
+  );
+}
+
+.section--work::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: clamp(2.25rem, 5.5vw, 3.25rem);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, white 88%, var(--brand-yellow) 12%) 0%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.section__title {
+  margin: 0;
+  width: 100%;
+  max-width: 42rem;
+  margin-inline: auto;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4.2vw, 2.35rem);
+  font-weight: 400;
+  text-align: center;
+  color: var(--ocean-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  letter-spacing: 0.03em;
+}
+
+.section--work .section__title {
+  margin-bottom: 2.25rem;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  color: color-mix(in srgb, var(--brand-blue) 18%, var(--brand-yellow) 82%);
+}
+
+.section--work .wrap {
+  text-align: center;
+}
+
+/* Themen-Bereiche — editorial, eine Spalte, je eine Brandfarbe */
+.topic-band {
+  --topic-accent: var(--brand-turquoise);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--cream) 97%, var(--topic-accent) 3%) 0%,
+    color-mix(in srgb, white 96%, var(--topic-accent) 4%) 48%,
+    color-mix(in srgb, white 98%, var(--topic-accent) 2%) 100%
+  );
+}
+
+.topic-band--turquoise {
+  --topic-accent: var(--brand-turquoise);
+}
+
+.topic-band--rose {
+  --topic-accent: var(--brand-rose);
+}
+
+.topic-band--blue {
+  --topic-accent: var(--brand-blue);
+}
+
+/* Weicher Übergang von der jeweils vorherigen Themenfarbe */
+.topic-band--rose + .topic-band--turquoise::before {
+  content: "";
+  display: block;
+  height: clamp(2rem, 5vw, 3.25rem);
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, white 90%, var(--brand-rose) 5%) 0%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.topic-band--turquoise + .topic-band--blue::before {
+  content: "";
+  display: block;
+  height: clamp(2rem, 5vw, 3.25rem);
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, white 90%, var(--brand-turquoise) 6%) 0%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.topic-band__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: clamp(1.75rem, 4vw, 2.75rem);
+  padding: clamp(2.25rem, 5vw, 3.75rem) 0 clamp(2.75rem, 6vw, 4.25rem);
+}
+
+.topic-band__kicker {
+  margin: 0;
+  order: 0;
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-align: center;
+  color: color-mix(in srgb, var(--ink-muted) 82%, var(--brand-blue) 18%);
+  line-height: 1.45;
+  text-wrap: balance;
+}
+
+.topic-band__figure {
+  margin: 0;
+  width: 100%;
+  max-width: none;
+  display: flex;
+  justify-content: center;
+}
+
+.topic-band__placeholder {
+  width: 100%;
+  max-width: 28rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: clamp(1.75rem, 4vw, 2.5rem) 1.5rem;
+  text-align: center;
+  border: 2px dashed color-mix(in srgb, var(--topic-accent) 26%, rgba(27, 75, 121, 0.35) 74%);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, white 91%, var(--topic-accent) 9%) 0%,
+    color-mix(in srgb, white 96%, var(--topic-accent) 4%) 100%
+  );
+}
+
+.topic-band__placeholder-label {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: color-mix(in srgb, var(--brand-blue) 40%, var(--topic-accent) 60%);
+  letter-spacing: 0.04em;
+}
+
+.topic-band__placeholder-hint {
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  letter-spacing: 0.03em;
+}
+
+.topic--editorial {
+  width: 100%;
+  max-width: min(52rem, 100%);
+  margin-inline: auto;
+}
+
+.topic__head-split {
+  width: 100%;
+  margin-bottom: clamp(1.5rem, 3.8vw, 2.25rem);
+}
+
+.topic__head-split--center-title {
+  text-align: center;
+  padding: clamp(0.35rem, 1.5vw, 0.85rem) 0;
+}
+
+.topic__main-title {
+  margin: 0 auto;
+  max-width: min(40rem, 94%);
+  font-family: var(--font-display);
+  font-size: clamp(1.52rem, 3.48vw, 1.92rem);
+  font-weight: 400;
+  line-height: 1.38;
+  letter-spacing: 0.02em;
+  text-wrap: balance;
+}
+
+.topic--editorial > p {
+  text-align: center;
+  text-wrap: balance;
+}
+
+.topic-band .topic__main-title {
+  color: color-mix(in srgb, var(--brand-blue) 28%, var(--topic-accent) 72%);
+}
+
+.topic p {
+  margin: 0 0 1rem;
+  color: var(--ink-muted);
+  font-size: 1.0625rem;
+  line-height: 1.68;
+}
+
+.topic p:last-child {
+  margin-bottom: 0;
+}
+
+.topic__close {
+  margin-top: 0.25rem;
+  color: var(--ink);
+  font-style: italic;
+}
+
+/* Prose block */
+.prose {
+  max-width: 40rem;
+  margin-inline: auto;
+  font-size: 1.08rem;
+}
+
+.prose--center {
+  text-align: center;
+}
+
+.prose p {
+  margin: 0 0 1rem;
+  color: var(--ink-muted);
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+.prose__emphasis {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--ocean-deep);
+  letter-spacing: 0.03em;
+}
+
+.section--work .prose__emphasis {
+  color: color-mix(in srgb, var(--brand-blue) 28%, var(--brand-yellow) 72%);
+}
+
+/* Footer */
+.site-footer {
+  padding: 2.5rem 0 2.75rem;
+  border-top: 1px solid rgba(39, 104, 120, 0.12);
+  background: linear-gradient(180deg, transparent, rgba(159, 212, 224, 0.12));
+}
+
+.footer__inner {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.footer__brand-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: clamp(0.39rem, 1.48vw, 0.66rem);
+  margin: 0 0 0.5rem;
+  padding: 0;
+}
+
+.footer__brand-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.24rem;
+}
+
+.footer__brand-dot {
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--footer-dot);
+}
+
+.footer__brand-dot--sm {
+  width: 7px;
+  height: 7px;
+}
+
+.footer__brand-dot--lg {
+  width: 12px;
+  height: 12px;
+}
+
+.footer__logo {
+  display: block;
+  width: auto;
+  max-height: 176px;
+  max-width: min(440px, 90vw);
+  height: auto;
+  object-fit: contain;
+}
+
+.footer__tag {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--ink-muted);
+  letter-spacing: 0.04em;
+}
