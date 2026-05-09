@@ -1,8 +1,8 @@
-/* Brand palette — etwas satter (~30 %), Türkis klar „Paradise / Lagunenwasser“ */
+/* Brand green = Kleeblatt im Logo (gedämpftes Kühl-Türkisgrün, klar von Lagunen-Türkis getrennt) */
 :root {
   --brand-blue: #0a4d84;
   --brand-turquoise: #17a3be;
-  --brand-yellow: #f0bd65;
+  --brand-green: #5d907f;
   --brand-rose: #c8438a;
 
   --ocean-deep: var(--brand-blue);
@@ -13,8 +13,8 @@
   --rose: var(--brand-rose);
   --rose-soft: #e8a4b8;
   --blush-wash: rgba(231, 168, 188, 0.25);
-  --sun: var(--brand-yellow);
-  --sun-soft: #f5e8c8;
+  --sun: var(--brand-green);
+  --sun-soft: color-mix(in srgb, #f5faf7 88%, var(--brand-green) 12%);
   --lavender: #9e8eb5;
   --lavender-mist: rgba(158, 142, 181, 0.18);
   --cream: #fbfaf7;
@@ -160,7 +160,6 @@ body {
     90deg,
     var(--brand-blue),
     var(--brand-turquoise),
-    var(--brand-yellow),
     var(--brand-rose)
   );
   opacity: 0.88;
@@ -248,56 +247,28 @@ body {
   padding: 3rem 0;
 }
 
+.section__title {
+  margin: 0 0 1.25rem;
+  max-width: 40rem;
+  margin-inline: auto;
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 4vw, 2.1rem);
+  font-weight: 400;
+  line-height: 1.28;
+  letter-spacing: 0.025em;
+  color: var(--ocean-deep);
+  text-wrap: balance;
+  text-align: center;
+}
+
 .section--work {
   position: relative;
   padding-top: clamp(3rem, 7vw, 4.25rem);
   padding-bottom: 4rem;
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--cream) 93%, var(--brand-yellow) 7%) 0%,
-    var(--cream) 72%
-  );
-}
-
-.section--work::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: clamp(2.25rem, 5.5vw, 3.25rem);
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, white 88%, var(--brand-yellow) 12%) 0%,
-    transparent 100%
-  );
-  pointer-events: none;
-}
-
-.section__title {
-  margin: 0;
-  width: 100%;
-  max-width: 42rem;
-  margin-inline: auto;
-  font-family: var(--font-display);
-  font-size: clamp(1.75rem, 4.2vw, 2.35rem);
-  font-weight: 400;
-  text-align: center;
-  color: var(--ocean-deep);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  letter-spacing: 0.03em;
 }
 
 .section--work .section__title {
   margin-bottom: 2.25rem;
-  width: 100%;
-  justify-content: center;
-  text-align: center;
-  color: color-mix(in srgb, var(--brand-blue) 18%, var(--brand-yellow) 82%);
 }
 
 .section--work .wrap {
@@ -501,13 +472,9 @@ body {
   letter-spacing: 0.03em;
 }
 
-.section--work .prose__emphasis {
-  color: color-mix(in srgb, var(--brand-blue) 28%, var(--brand-yellow) 72%);
-}
-
 /* Footer */
 .site-footer {
-  padding: 2.5rem 0 2.75rem;
+  padding: 0;
   border-top: 1px solid rgba(39, 104, 120, 0.12);
   background: linear-gradient(180deg, transparent, rgba(159, 212, 224, 0.12));
 }
@@ -518,38 +485,7 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 0.65rem;
-}
-
-.footer__brand-dots {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: clamp(0.39rem, 1.48vw, 0.66rem);
-  margin: 0 0 0.5rem;
-  padding: 0;
-}
-
-.footer__brand-group {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.24rem;
-}
-
-.footer__brand-dot {
-  flex-shrink: 0;
-  border-radius: 50%;
-  background: var(--footer-dot);
-}
-
-.footer__brand-dot--sm {
-  width: 7px;
-  height: 7px;
-}
-
-.footer__brand-dot--lg {
-  width: 12px;
-  height: 12px;
+  padding: clamp(1.75rem, 4vw, 2.75rem) 0 clamp(2.5rem, 5vw, 3rem);
 }
 
 .footer__logo {
@@ -566,4 +502,17 @@ body {
   font-size: 0.95rem;
   color: var(--ink-muted);
   letter-spacing: 0.04em;
+}
+
+.footer__illustration {
+  width: 100%;
+  margin: 0;
+  line-height: 0;
+}
+
+.footer__illustration-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: bottom;
 }
