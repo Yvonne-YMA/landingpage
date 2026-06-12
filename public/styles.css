@@ -559,7 +559,7 @@ body {
 .approach__item::before {
   content: counter(approach, decimal-leading-zero);
   font-family: var(--font-display);
-  font-size: clamp(2.75rem, 6vw, 4.5rem);
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
   font-weight: 400;
   line-height: 1;
   letter-spacing: 0.04em;
@@ -574,7 +574,7 @@ body {
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: 0.03em;
-  color: color-mix(in srgb, var(--brand-blue) 62%, var(--acc) 38%);
+  color: var(--acc);
   text-wrap: balance;
 }
 
@@ -594,22 +594,25 @@ body {
   }
 
   .approach__term {
+    grid-row: 1;
     grid-column: 1;
     text-align: center;
   }
 
   .approach__item::before {
+    grid-row: 1;
     grid-column: 2;
-    align-self: stretch;
+    align-self: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 clamp(0.5rem, 1.5vw, 1.25rem);
+    padding: 0.45em clamp(0.65rem, 1.6vw, 1.3rem);
     border-inline: 1px solid color-mix(in srgb, var(--acc) 30%, transparent);
     text-align: center;
   }
 
   .approach__desc {
+    grid-row: 1;
     grid-column: 3;
     text-align: left;
   }
