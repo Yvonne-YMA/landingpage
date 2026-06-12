@@ -1,0 +1,6 @@
+# macOS
+.DS_Store
+
+# Screenshots / local artifacts
+screenshots/
+screenshots.zip
