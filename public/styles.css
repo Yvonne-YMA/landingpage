@@ -1,3 +1,59 @@
+/* Playfair Display — lokal eingebettet (Body-Schrift) */
+@font-face {
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    url("/fonts/playfair-400-latin.woff2") format("woff2"),
+    url("/fonts/playfair-400-latin-ext.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src:
+    url("/fonts/playfair-500-latin.woff2") format("woff2"),
+    url("/fonts/playfair-500-latin-ext.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src:
+    url("/fonts/playfair-600-latin.woff2") format("woff2"),
+    url("/fonts/playfair-600-latin-ext.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src:
+    url("/fonts/playfair-700-latin.woff2") format("woff2"),
+    url("/fonts/playfair-700-latin-ext.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Playfair Display";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    url("/fonts/playfair-400i-latin.woff2") format("woff2"),
+    url("/fonts/playfair-400i-latin-ext.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Playfair Display";
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src:
+    url("/fonts/playfair-600i-latin.woff2") format("woff2"),
+    url("/fonts/playfair-600i-latin-ext.woff2") format("woff2");
+}
+
 /* Brand green = Kleeblatt im Logo (gedämpftes Kühl-Türkisgrün, klar von Lagunen-Türkis getrennt) */
 :root {
   --brand-blue: #0a4d84;
@@ -23,7 +79,7 @@
   --ink-muted: #5c6e87;
 
   --font-display: "The Girl Next Door", cursive;
-  --font-body: "Quicksand", system-ui, sans-serif;
+  --font-body: "Playfair Display", Georgia, "Times New Roman", serif;
 
   --radius-lg: 20px;
   --radius-sm: 12px;
