@@ -140,6 +140,14 @@ body {
 .intro-editorial__eyebrow {
   margin: 0 0 clamp(1.35rem, 3.5vw, 2rem);
   max-width: 34rem;
+}
+
+.intro-editorial__eyebrow--after {
+  margin: clamp(1.5rem, 4vw, 2.25rem) 0 0;
+}
+
+.intro-editorial__eyebrow,
+.intro-editorial__eyebrow--after {
   font-family: var(--font-body);
   font-weight: 600;
   font-size: clamp(0.95rem, 2vw, 1.08rem);
@@ -556,23 +564,16 @@ body {
 }
 
 .offers {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: clamp(1.5rem, 3.5vw, 2.25rem);
   margin-top: clamp(1.75rem, 4.5vw, 2.75rem);
-  align-items: start;
-}
-
-@media (min-width: 52rem) {
-  .offers {
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
 .offer {
   --offer-accent: var(--brand-turquoise);
   position: relative;
-  padding: clamp(1.75rem, 4vw, 2.5rem);
+  padding: clamp(1.75rem, 4vw, 2.75rem);
   background: var(--paper);
   border: 1px solid rgba(39, 104, 120, 0.1);
   border-top: 4px solid var(--offer-accent);
@@ -588,8 +589,23 @@ body {
   --offer-accent: var(--brand-rose);
 }
 
+.offer__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  text-align: left;
+}
+
+@media (min-width: 48rem) {
+  .offer__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: clamp(1.75rem, 4vw, 3rem);
+    align-items: start;
+  }
+}
+
 .offer__head {
-  margin-bottom: 1.25rem;
+  margin: 0;
 }
 
 .offer__title {
@@ -649,6 +665,47 @@ body {
 
 .offer__list li::marker {
   color: var(--offer-accent);
+}
+
+.offer__body > p:last-child,
+.offer__body > .offer__list:last-child {
+  margin-bottom: 0;
+}
+
+.offer__cta {
+  margin-top: clamp(1.5rem, 3.5vw, 2.25rem);
+  padding-top: clamp(1.35rem, 3vw, 1.85rem);
+  border-top: 1px solid rgba(39, 104, 120, 0.1);
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.16s ease, box-shadow 0.16s ease, filter 0.16s ease;
+}
+
+.btn--book {
+  padding: 1rem 3rem;
+  font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+  color: #ffffff;
+  background: var(--offer-accent);
+  box-shadow: 0 12px 26px color-mix(in srgb, var(--offer-accent) 32%, transparent);
+}
+
+.btn--book:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.04);
+  box-shadow: 0 16px 32px color-mix(in srgb, var(--offer-accent) 42%, transparent);
+}
+
+.btn--book:active {
+  transform: translateY(0);
 }
 
 /* Rechtstexte — Impressum & Datenschutz */
