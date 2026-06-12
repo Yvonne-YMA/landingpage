@@ -516,42 +516,99 @@ body {
   letter-spacing: 0.03em;
 }
 
-/* "So begleite ich Dich" — vier Haltungs-Punkte */
+/* "So begleite ich Dich" — alternierendes Magazin-Layout */
 .section--approach .wrap {
+  width: min(58rem, calc(100% - 2.5rem));
   text-align: center;
 }
 
 .approach__list {
   list-style: none;
-  margin: clamp(1.75rem, 4.5vw, 2.75rem) auto 0;
+  counter-reset: approach;
+  margin: clamp(2.25rem, 5.5vw, 3.5rem) auto 0;
   padding: 0;
-  max-width: 38rem;
   display: flex;
   flex-direction: column;
-  gap: clamp(1.35rem, 3.5vw, 2rem);
+  gap: clamp(2.5rem, 6vw, 4.5rem);
 }
 
 .approach__item {
-  margin: 0;
+  --acc: var(--brand-turquoise);
+  counter-increment: approach;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem clamp(1.5rem, 5vw, 3.5rem);
+  align-items: center;
+  text-align: left;
+}
+
+.approach__item:nth-child(1) {
+  --acc: var(--brand-rose);
+}
+.approach__item:nth-child(2) {
+  --acc: var(--brand-turquoise);
+}
+.approach__item:nth-child(3) {
+  --acc: var(--brand-blue);
+}
+.approach__item:nth-child(4) {
+  --acc: var(--brand-green);
 }
 
 .approach__term {
   display: block;
+  position: relative;
   font-family: var(--font-display);
-  font-size: clamp(1.25rem, 3vw, 1.6rem);
+  font-size: clamp(1.55rem, 4.4vw, 2.35rem);
   font-weight: 400;
-  line-height: 1.3;
+  line-height: 1.22;
   letter-spacing: 0.03em;
-  color: color-mix(in srgb, var(--brand-blue) 70%, var(--brand-turquoise) 30%);
+  color: color-mix(in srgb, var(--brand-blue) 62%, var(--acc) 38%);
+  text-wrap: balance;
+}
+
+.approach__term::before {
+  content: counter(approach, decimal-leading-zero);
+  display: block;
+  margin-bottom: 0.55rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  color: var(--acc);
 }
 
 .approach__desc {
-  margin: 0.4rem auto 0;
-  max-width: 32rem;
+  margin: 0;
   color: var(--ink-muted);
   font-size: 1.0625rem;
-  line-height: 1.65;
+  line-height: 1.7;
   text-wrap: balance;
+}
+
+@media (min-width: 46rem) {
+  .approach__item {
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 6vw, 4.5rem);
+  }
+
+  /* ungerade: Titel links (am Bund), Text rechts */
+  .approach__item:nth-child(odd) .approach__term {
+    text-align: right;
+  }
+  .approach__item:nth-child(odd) .approach__desc {
+    text-align: left;
+  }
+
+  /* gerade: Text links, Titel rechts (am Bund) */
+  .approach__item:nth-child(even) .approach__term {
+    order: 2;
+    text-align: left;
+  }
+  .approach__item:nth-child(even) .approach__desc {
+    order: 1;
+    text-align: right;
+  }
 }
 
 /* "Deine Begleitung" — Angebots-Karten */
