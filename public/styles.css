@@ -559,7 +559,7 @@ body {
 .approach__item::before {
   content: counter(approach, decimal-leading-zero);
   font-family: var(--font-display);
-  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-size: clamp(1.13rem, 2.5vw, 1.75rem);
   font-weight: 400;
   line-height: 1;
   letter-spacing: 0.04em;
