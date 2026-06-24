@@ -163,7 +163,7 @@ body {
   width: min(14rem, 55%);
   height: 2px;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--brand-blue), var(--brand-turquoise), var(--brand-rose));
+  background: linear-gradient(90deg, var(--brand-blue), var(--brand-turquoise), var(--brand-green), var(--brand-rose));
   opacity: 0.82;
   margin: 0.1rem 0 0.25rem;
 }
