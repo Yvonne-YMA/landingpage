@@ -573,7 +573,7 @@ body {
 
 .topic-band__full-img img {
   width: 100%;
-  height: clamp(220px, 40vw, 420px);
+  height: clamp(160px, 28vw, 300px);
   object-fit: cover;
   object-position: center 40%;
   display: block;
@@ -684,6 +684,9 @@ body {
 .topic__close,
 .topic p.topic__close {
   margin-top: 1.75rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 75%;
   padding: 1.25rem 1.5rem;
   border-radius: 1rem;
   border: 1px solid color-mix(in srgb, white 70%, var(--brand-rose) 30%);
@@ -830,13 +833,44 @@ body {
 
 /* "Darum begleite ich dich" */
 .section--why {
-  padding: clamp(3rem, 7vw, 5rem) 0;
+  padding: 0;
+  overflow: hidden;
 }
 
-.why__wrap {
-  width: min(44rem, calc(100% - 2.5rem));
-  margin-inline: auto;
-  text-align: center;
+.why__layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  min-height: clamp(360px, 55vw, 560px);
+}
+
+.why__portrait {
+  margin: 0;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.why__portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.why__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2.5rem, 5vw, 4rem) clamp(2rem, 5vw, 3.5rem);
+}
+
+@media (max-width: 680px) {
+  .why__layout {
+    grid-template-columns: 1fr;
+  }
+  .why__portrait {
+    height: 280px;
+  }
 }
 
 .why__body {
