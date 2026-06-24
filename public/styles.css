@@ -681,7 +681,8 @@ body {
   margin-bottom: 0;
 }
 
-.topic__close {
+.topic__close,
+.topic p.topic__close {
   margin-top: 1.75rem;
   padding: 1.25rem 1.5rem;
   border-radius: 1rem;
