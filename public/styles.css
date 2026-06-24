@@ -160,10 +160,18 @@ body {
 }
 
 .hero-banner__rule {
-  width: 3.5rem;
-  height: 1px;
-  background: color-mix(in srgb, var(--brand-blue) 35%, transparent);
-  margin: 0.35rem 0;
+  width: min(14rem, 55%);
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--brand-blue), var(--brand-turquoise), var(--brand-rose));
+  opacity: 0.82;
+  margin: 0.1rem 0 0.25rem;
+}
+
+.hero-banner__dot {
+  font-size: 0.6em;
+  vertical-align: middle;
+  margin: 0 0.2em;
 }
 
 .hero-banner__text {
