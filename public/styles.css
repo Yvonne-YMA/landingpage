@@ -49,19 +49,11 @@ body {
   font-size: 1.0625rem;
   line-height: 1.65;
   color: var(--ink);
-  background: var(--cream);
+  background: #ffffff;
 }
 
 .bg-soft {
-  pointer-events: none;
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background:
-    radial-gradient(ellipse 90% 70% at 10% 0%, rgba(159, 212, 224, 0.35) 0%, transparent 55%),
-    radial-gradient(ellipse 80% 60% at 95% 15%, var(--lavender-mist) 0%, transparent 50%),
-    radial-gradient(ellipse 70% 50% at 50% 100%, var(--blush-wash) 0%, transparent 45%),
-    var(--cream);
+  display: none;
 }
 
 .wrap {
@@ -471,10 +463,12 @@ body {
 
 .topic-band--turquoise {
   --topic-accent: var(--brand-turquoise);
+  background: white;
 }
 
 .topic-band--rose {
   --topic-accent: var(--brand-rose);
+  background: white;
 }
 
 .topic-band--green {
@@ -484,33 +478,7 @@ body {
 
 .topic-band--blue {
   --topic-accent: var(--brand-blue);
-}
-
-/* Weicher Übergang von der jeweils vorherigen Themenfarbe */
-.topic-band--green + .topic-band--turquoise::before {
-  content: "";
-  display: block;
-  height: clamp(2rem, 5vw, 3.25rem);
-  width: 100%;
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, white 90%, var(--brand-rose) 5%) 0%,
-    transparent 100%
-  );
-  pointer-events: none;
-}
-
-.topic-band--turquoise + .topic-band--blue::before {
-  content: "";
-  display: block;
-  height: clamp(2rem, 5vw, 3.25rem);
-  width: 100%;
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, white 90%, var(--brand-turquoise) 6%) 0%,
-    transparent 100%
-  );
-  pointer-events: none;
+  background: white;
 }
 
 .topic-band__inner {
@@ -845,6 +813,7 @@ body {
 
 .why__portrait {
   margin: 0;
+  position: relative;
   overflow: hidden;
   line-height: 0;
 }
@@ -855,6 +824,15 @@ body {
   object-fit: cover;
   object-position: center top;
   display: block;
+}
+
+/* right-to-white fade on desktop */
+.why__portrait::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, transparent 55%, white 100%);
+  pointer-events: none;
 }
 
 .why__content {
@@ -869,7 +847,11 @@ body {
     grid-template-columns: 1fr;
   }
   .why__portrait {
-    height: 280px;
+    aspect-ratio: 1 / 1;
+    height: auto;
+  }
+  .why__portrait::after {
+    background: linear-gradient(to bottom, transparent 55%, white 100%);
   }
 }
 
