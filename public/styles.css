@@ -982,11 +982,17 @@ body {
   letter-spacing: 0.04em;
 }
 
+.footer__tag--main {
+  display: block;
+  font-size: clamp(1.45rem, 3.4vw, 1.85rem);
+}
+
 .footer__tag--sub {
   display: block;
-  font-size: clamp(0.95rem, 2vw, 1.15rem);
-  opacity: 0.72;
-  letter-spacing: 0.06em;
+  font-size: clamp(0.88rem, 1.8vw, 1.05rem);
+  opacity: 0.68;
+  letter-spacing: 0.04em;
+  margin-top: 0.2rem;
 }
 
 .footer__illustration {
