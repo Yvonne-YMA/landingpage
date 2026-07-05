@@ -182,8 +182,8 @@
   .approach .head h2{font-size:clamp(2rem,4vw,3rem);margin-top:14px;}
   .journey{position:relative;display:grid;grid-template-columns:1fr;gap:46px;max-width:980px;margin:0 auto;}
   @media(min-width:860px){
-    .journey{grid-template-columns:repeat(4,1fr);gap:22px;}
-    .journey::before{content:"";position:absolute;top:46px;left:12%;right:12%;height:2px;z-index:0;
+    .journey{grid-template-columns:repeat(3,1fr);gap:22px;}
+    .journey::before{content:"";position:absolute;top:46px;left:17%;right:17%;height:2px;z-index:0;
       background:linear-gradient(90deg,var(--blue),var(--turq),var(--pink));opacity:.45;}
   }
   .jstep{position:relative;z-index:1;text-align:center;padding:0 12px;}
@@ -201,6 +201,19 @@
   .jstep:nth-child(3) h3 .em{color:var(--pink);}
   .jstep:nth-child(4) h3 .em{color:var(--navy);}
   .jstep p{color:var(--mut);font-size:.96rem;line-height:1.6;max-width:24ch;margin:0 auto;}
+
+  /* ── journey cta standalone ── */
+  .jcta{margin-top:80px;padding:64px 48px 56px;text-align:center;
+    background:linear-gradient(135deg,#edf6fc 0%,#fdf0f7 50%,#edf9f6 100%);
+    border-radius:32px;border:1px solid var(--line);
+    box-shadow:0 30px 60px -40px rgba(90,110,150,.25);
+    max-width:860px;margin-left:auto;margin-right:auto;}
+  .jcta-clover{width:110px;height:auto;margin:0 auto 28px;opacity:.75;}
+  .jcta-headline{font-family:var(--disp);font-size:clamp(2.6rem,5.5vw,4.2rem);font-weight:500;
+    color:var(--navy);line-height:1.1;margin-bottom:20px;}
+  .jcta-headline em{font-style:italic;color:var(--pink);}
+  .jcta-body{font-family:var(--disp);font-style:italic;font-size:clamp(1.15rem,2.2vw,1.55rem);
+    color:var(--mut);line-height:1.6;max-width:42ch;margin:0 auto;}
 
   /* ── offers (soft pastel pricing) ── */
   .offers{background:linear-gradient(180deg,#ffffff 0%,var(--soft-2) 100%);}
@@ -424,7 +437,12 @@
       <div class="jstep"><span class="jnum">01</span><h3>Ich glaube <span class="em">an dich</span></h3><p>von Anfang an und auch dann, wenn du es selbst vielleicht gerade nicht kannst.</p></div>
       <div class="jstep"><span class="jnum">02</span><h3>Ich halte <span class="em">den Raum</span></h3><p>in dem du einfach sein darfst, dich gesehen fühlst und bei dir ankommen kannst.</p></div>
       <div class="jstep"><span class="jnum">03</span><h3>Ich erkenne <span class="em">den Kern</span></h3><p>das, was dich wirklich bewegt.</p></div>
-      <div class="jstep"><span class="jnum">04</span><h3>Und ich <span class="em">begleite dich</span></h3><p>mit Klarheit &amp; Präsenz in stimmige nächste Schritte.</p></div>
+    </div>
+
+    <div class="jcta">
+      <svg class="deco jcta-clover" viewBox="0 0 240 110" aria-hidden="true"><use href="#clover"/></svg>
+      <p class="jcta-headline">Und ich <em>begleite dich</em></p>
+      <p class="jcta-body">mit Klarheit &amp; Präsenz in stimmige nächste Schritte.</p>
     </div>
   </div>
 </section>
