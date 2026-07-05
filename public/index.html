@@ -47,7 +47,8 @@
   .play:hover .circ{background:var(--turq);color:#fff;}
 
   /* logo */
-  .logo{width:118px;height:auto;}
+  .logo{width:140px;height:auto;display:block;overflow:visible;}
+  footer .flogo{width:150px;height:auto;display:block;overflow:visible;margin-bottom:16px;}
   #defs{position:absolute;width:0;height:0;}
 
   /* image placeholders */
@@ -253,7 +254,7 @@
   footer{background:linear-gradient(180deg,#f1faf6 0%,#fbf4f8 100%);color:var(--ink);padding:74px 0 36px;border-top:3px solid var(--turq);}
   .foot-grid{display:grid;grid-template-columns:1fr;gap:34px;align-items:start;}
   @media(min-width:760px){ .foot-grid{grid-template-columns:1.4fr 1fr 1fr;} }
-  footer .flogo{width:130px;opacity:1;margin-bottom:16px;}
+  footer .flogo{width:150px;height:auto;opacity:1;margin-bottom:16px;display:block;}
   footer .ftag{font-size:.86rem;color:var(--mut);max-width:32ch;}
   footer h5{font-family:var(--ui);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--turq-d);margin-bottom:16px;}
   footer .fl a{display:block;color:var(--ink);font-size:.92rem;margin-bottom:10px;opacity:.85;transition:opacity .2s,color .2s;}
@@ -306,7 +307,7 @@
 <!-- ══ HEADER ══ -->
 <header>
   <div class="wrap">
-    <a href="#top" aria-label="yma"><svg class="logo" viewBox="90 55 1216 415"><use href="#ymaLogo"/></svg></a>
+    <a href="#top" aria-label="yma"><img class="logo" src="images/yma_logo.svg" alt="yma" /></a>
     <nav class="main">
       <a href="#themen">Themen</a>
       <a href="#ueber">Über mich</a>
@@ -500,7 +501,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <svg class="flogo" viewBox="90 55 1216 415"><use href="#ymaLogo"/></svg>
+        <img class="flogo" src="images/yma_logo.svg" alt="yma" />
         <p class="ftag">Wieder Ruhe spüren, bei dir ankommen und in deinem Rhythmus leben.</p>
         <div class="fdots"><i></i><i></i><i></i></div>
       </div>
