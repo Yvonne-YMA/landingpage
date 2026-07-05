@@ -182,8 +182,8 @@
   .approach .head h2{font-size:clamp(2rem,4vw,3rem);margin-top:14px;}
   .journey{position:relative;display:grid;grid-template-columns:1fr;gap:46px;max-width:980px;margin:0 auto;}
   @media(min-width:860px){
-    .journey{grid-template-columns:repeat(3,1fr);gap:22px;}
-    .journey::before{content:"";position:absolute;top:46px;left:17%;right:17%;height:2px;z-index:0;
+    .journey{grid-template-columns:repeat(4,1fr);gap:22px;}
+    .journey::before{content:"";position:absolute;top:46px;left:12%;right:12%;height:2px;z-index:0;
       background:linear-gradient(90deg,var(--blue),var(--turq),var(--pink));opacity:.45;}
   }
   .jstep{position:relative;z-index:1;text-align:center;padding:0 12px;}
@@ -193,11 +193,13 @@
   .jstep:nth-child(1) .jnum{background:linear-gradient(145deg,var(--blue),#6fb0d6);}
   .jstep:nth-child(2) .jnum{background:linear-gradient(145deg,var(--turq),#83cdbe);}
   .jstep:nth-child(3) .jnum{background:linear-gradient(145deg,var(--pink),#e98cae);}
+  .jstep:nth-child(4) .jnum{background:linear-gradient(145deg,var(--navy),#4a6fa0);}
   .jstep h3{font-size:1.5rem;margin-bottom:12px;}
   .jstep h3 .em{font-style:italic;}
   .jstep:nth-child(1) h3 .em{color:var(--blue);}
   .jstep:nth-child(2) h3 .em{color:var(--turq-d);}
   .jstep:nth-child(3) h3 .em{color:var(--pink);}
+  .jstep:nth-child(4) h3 .em{color:var(--navy);}
   .jstep p{color:var(--mut);font-size:.96rem;line-height:1.6;max-width:24ch;margin:0 auto;}
 
   /* ── offers (soft pastel pricing) ── */
@@ -311,7 +313,7 @@
   <div class="wrap">
     <div class="hero-copy">
       <h1>Du trägst so viel für alle — und verlierst dabei <span class="em">dich selbst.</span></h1>
-      <p class="sub">Wieder Ruhe spüren, bei dir ankommen und in deinem Rhythmus leben. Ein geschützter Raum, ein liebevoller Blick von außen und Schritt für Schritt zurück zu dir.</p>
+      <p class="sub">Wieder Ruhe spüren, bei dir ankommen und in deinem Rhythmus leben.<br>Von beschäftigt zu erfüllt — ich begleite Dich.</p>
       <div class="actions">
         <a href="#begleitung" class="btn">Kompass-Gespräch vereinbaren&nbsp;♡</a>
         <a href="#ueber" class="play"><span class="circ"><svg width="12" height="14" viewBox="0 0 12 14" fill="currentColor"><path d="M0 0l12 7-12 7z"/></svg></span> Kennenlernen</a>
@@ -342,7 +344,7 @@
     </div>
     <blockquote class="strip-quote">
       <div class="qm">"</div>
-      <p>Wenn du wieder bei dir ankommst, verändert sich alles.</p>
+      <p>Kennst du das Gefühl, nur noch zu funktionieren statt wirklich zu leben? Ständig im Außen, im Denken, im Organisieren — und dabei immer weiter von dir selbst entfernt? Genau dort starten wir beide gemeinsam.</p>
       <svg class="q-flo" viewBox="0 0 130 26" fill="none" aria-hidden="true">
         <path d="M4 13 C 34 2 70 24 104 12" stroke="var(--turq)" stroke-width="1.4" stroke-linecap="round" opacity=".8"/>
         <path d="M112 7 c 3 -4 10 -3 10 2 c 0 4 -6 8 -10 11 c -4 -3 -10 -7 -10 -11 c 0 -5 7 -6 10 -2 z" fill="var(--pink)" opacity=".85"/>
@@ -369,7 +371,7 @@
           <span class="badge"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 22V8"/><path d="M12 8c0-3 2-5 5-5-.5 3-2 5-5 5z"/><path d="M12 12c0-3-2-5-5-5 .5 3 2 5 5 5z"/></svg></span>
           <span class="cat">Leben · Einklang</span>
           <h3>Wenn dein Leben nicht mehr stimmig ist</h3>
-          <p>Eine Unruhe, die du nicht greifen kannst. Gemeinsam schauen wir unter die Oberfläche, erkennen den Kern und bringen wieder Klarheit, Ruhe und Harmonie in dein Leben.</p>
+          <p>In deinem Alltag, deinen Beziehungen oder in dir selbst ist eine Unruhe, die du nicht genau greifen kannst. Du spürst nur, irgendetwas passt nicht mehr. Vielleicht funktionierst du nur noch, bist innerlich unruhig und hetzt von einer Aufgabe oder einem Termin zum nächsten. Wer du bist und was du wirklich willst, weißt du kaum noch. Gemeinsam schauen wir unter die Oberfläche, erkennen den Kern und bringen Schritt für Schritt wieder mehr Klarheit, Ruhe und Harmonie in dein Leben.</p>
         </div>
       </div>
       <div class="card">
@@ -378,7 +380,7 @@
           <span class="badge"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="11"/></svg></span>
           <span class="cat">Kopf · Ruhe</span>
           <h3>Wenn dein Kopf nicht zur Ruhe kommt</h3>
-          <p>Zu viele Gedanken und offene Themen. Gemeinsam bringen wir Ordnung und Struktur, damit du wieder klar sehen, bewusst entscheiden und freier handeln kannst.</p>
+          <p>Da sind einfach zu viele Gedanken und zu viele offene Themen. Du bist überfordert, dir fehlt die Orientierung und du weißt nicht, wo du anfangen sollst. Gemeinsam bringen wir Ordnung und Struktur in das, was gerade zu viel Raum einnimmt. Damit du wieder klar sehen, bewusst entscheiden und freier handeln kannst.</p>
         </div>
       </div>
       <div class="card">
@@ -387,7 +389,7 @@
           <span class="badge"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M3 8c3-3 6 3 9 0s6-3 9 0"/><path d="M3 14c3-3 6 3 9 0s6-3 9 0"/></svg></span>
           <span class="cat">Business · Fluss</span>
           <h3>Wenn dein Business nicht fließen will</h3>
-          <p>Viel investiert und trotzdem stockt es. Gemeinsam machen wir sichtbar, was dich zurückhält, und lösen Unstimmigkeiten — für neue Leichtigkeit und natürlichen Fluss.</p>
+          <p>Du hast dir was aufgebaut, viel Zeit, Energie und Herzblut investiert und trotzdem kommt dein Business nicht wirklich ins Fließen. Irgendwas blockiert. Gemeinsam machen wir sichtbar, was dich innerlich zurückhält und lösen Unstimmigkeiten auf. Mit neuer Klarheit, Leichtigkeit und Vertrauen zeigt sich dieser natürliche Fluss Schritt für Schritt auch im Außen.</p>
         </div>
       </div>
     </div>
@@ -403,7 +405,8 @@
       <h2>Weil ich weiß, was möglich ist, wenn man wieder bei sich ankommt.</h2>
       <div class="q">
         <p>Weil ich selbst erlebt habe, wie schmerzhaft es sein kann, den Kontakt zu sich selbst zu verlieren — und wie viel sich verändert, wenn man wieder bei sich ankommt.</p>
-        <p>Weil ich weiß, was möglich ist, wenn innere <em>Ruhe &amp; Vertrauen</em> zurückkehren. Und weil ich daran glaube, dass jeder Mensch seinen <em>eigenen Rhythmus</em> in sich trägt.</p>
+        <p>Weil ich weiß, was möglich ist, wenn innere <em>Ruhe &amp; Vertrauen</em> zurückkehren.</p>
+        <p>Und weil ich daran glaube, dass jeder Mensch seinen <em>eigenen Rhythmus</em> in sich trägt.</p>
       </div>
       <div class="sign">— Yvonne Müller-Andert</div>
     </div>
@@ -420,7 +423,8 @@
     <div class="journey">
       <div class="jstep"><span class="jnum">01</span><h3>Ich glaube <span class="em">an dich</span></h3><p>von Anfang an und auch dann, wenn du es selbst vielleicht gerade nicht kannst.</p></div>
       <div class="jstep"><span class="jnum">02</span><h3>Ich halte <span class="em">den Raum</span></h3><p>in dem du einfach sein darfst, dich gesehen fühlst und bei dir ankommen kannst.</p></div>
-      <div class="jstep"><span class="jnum">03</span><h3>Ich erkenne <span class="em">den Kern</span></h3><p>das, was dich wirklich bewegt — und ich begleite dich mit Klarheit &amp; Präsenz.</p></div>
+      <div class="jstep"><span class="jnum">03</span><h3>Ich erkenne <span class="em">den Kern</span></h3><p>das, was dich wirklich bewegt.</p></div>
+      <div class="jstep"><span class="jnum">04</span><h3>Und ich <span class="em">begleite dich</span></h3><p>mit Klarheit &amp; Präsenz in stimmige nächste Schritte.</p></div>
     </div>
   </div>
 </section>
@@ -438,7 +442,7 @@
         <div class="sub">Raum für Klarheit</div>
         <div class="price">90 Min · 224 €</div>
         <p>Manchmal braucht es keinen langen Prozess, sondern einen geschützten Raum, Klarheit und einen Blick von außen.</p>
-        <p>Wir schauen unter die Oberfläche, erkennen den Kern dessen, was dich wirklich bewegt, und bringen Ordnung in das, was gerade unklar oder blockiert erscheint.</p>
+        <p>In unserer gemeinsamen Session schauen wir unter die Oberfläche, erkennen den Kern dessen, was dich wirklich bewegt, und bringen Ordnung in das, was gerade unklar, blockiert oder unstimmig erscheint.</p>
         <p>Du gehst mit mehr Klarheit, Orientierung und konkreten nächsten Schritten aus dem Gespräch.</p>
         <a href="#kontakt" class="btn teal">Jetzt buchen</a>
       </div>
@@ -447,11 +451,14 @@
         <h3>Zurück zu Dir</h3>
         <div class="sub">von beschäftigt zu erfüllt</div>
         <div class="price">3 Monate · 369 € / Monat</div>
-        <p>Für dich, wenn du nicht nur erkennen, sondern nachhaltig verändern möchtest. Über drei Monate finden wir Schritt für Schritt zurück in deinen eigenen Rhythmus.</p>
+        <p>Für dich, wenn du nicht nur erkennen, sondern nachhaltig verändern möchtest.</p>
+        <p>Über drei Monate begleite ich dich dabei, innere Unstimmigkeiten sichtbar zu machen, Gedankenchaos zu ordnen, Blockaden zu lösen und Schritt für Schritt wieder in deinen eigenen Rhythmus zu finden.</p>
+        <p>Gemeinsam schaffen wir mehr Ruhe, Harmonie und Selbstbestimmung, damit du wieder bei dir ankommen kannst.</p>
+        <p>Du gehst danach wieder mit neuer Klarheit, mehr Energie und Leichtigkeit deinen eigenen Weg.</p>
         <ul>
-          <li>Ein persönliches Treffen pro Monat (ca. 60–90 Min)</li>
-          <li>Ein 1:1 Telefongespräch pro Monat (ca. 60 Min)</li>
-          <li>Begleitung per WhatsApp zwischen den Terminen</li>
+          <li>Ein persönliches Treffen pro Monat (ca. 60–90 Minuten)</li>
+          <li>Ein zusätzliches 1:1 Telefongespräch pro Monat (ca. 60 Minuten)</li>
+          <li>Begleitung zwischen den Terminen per WhatsApp für Fragen, Impulse und Unterstützung</li>
           <li>Raum für Reflexion, Klarheit und Entwicklung</li>
         </ul>
         <a href="#kontakt" class="btn">Jetzt buchen&nbsp;♡</a>
