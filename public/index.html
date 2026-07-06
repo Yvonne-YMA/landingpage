@@ -131,8 +131,9 @@
   .lead h2{font-size:clamp(2.2rem,4.4vw,3.2rem);margin:14px 0 18px;}
   .lead h2 .em{font-style:italic;color:var(--pink);}
   .lead p{color:var(--mut);}
-  .lead-cta{font-family:var(--disp);font-style:italic;font-size:clamp(1.1rem,2vw,1.35rem);font-weight:500;
-    color:var(--turq-d);background:rgba(59,168,164,.09);border-radius:14px;padding:16px 22px;margin-top:16px;display:block;line-height:1.5;}
+  .lead-cta{font-family:var(--disp);font-style:italic;font-size:clamp(1.55rem,3.2vw,2.2rem);font-weight:500;
+    color:var(--navy);background:linear-gradient(135deg,rgba(59,168,164,.08) 0%,rgba(219,90,144,.06) 100%);
+    border:1px solid rgba(59,168,164,.22);border-radius:20px;padding:26px 36px;margin-top:24px;display:block;line-height:1.3;}
 
   /* ── themes: 3 immersive cards ── */
   .themes .top{display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:52px;}
@@ -238,20 +239,14 @@
 
   /* ── CTA band ── */
   .band{background:linear-gradient(100deg,#eaf3fb 0%,#eff8f4 46%,#fdeef4 100%);color:var(--ink);position:relative;overflow:hidden;}
-  .band .wrap{display:grid;grid-template-columns:1fr;gap:26px;align-items:center;padding:66px 30px;}
-  @media(min-width:820px){ .band .wrap{grid-template-columns:1fr auto;} }
-  .band h2{color:var(--navy);font-size:clamp(1.9rem,3.6vw,2.8rem);line-height:1.2;}
-  .band h2 .em{font-style:italic;color:var(--pink);}
-  .band p{color:var(--mut);margin-top:10px;}
-  .band .btn{background:var(--pink);color:#fff;}
-  .band .btn:hover{background:var(--pink-d);color:#fff;transform:translateY(-2px);}
+  .band .wrap{text-align:center;padding:80px 30px;}
+  .band-logo{width:200px;height:auto;margin:0 auto 28px;display:block;}
+  .band-tag{font-family:var(--disp);font-style:italic;font-size:clamp(1.2rem,2.4vw,1.75rem);color:var(--navy);max-width:44ch;margin:0 auto;line-height:1.45;}
 
   /* ── footer ── */
   footer{background:linear-gradient(180deg,#f1faf6 0%,#fbf4f8 100%);color:var(--ink);padding:74px 0 36px;border-top:3px solid var(--turq);}
   .foot-grid{display:grid;grid-template-columns:1fr;gap:34px;align-items:start;}
-  @media(min-width:760px){ .foot-grid{grid-template-columns:1.4fr 1fr 1fr;} }
-  footer .flogo{width:150px;height:auto;opacity:1;margin-bottom:16px;display:block;}
-  footer .ftag{font-size:.86rem;color:var(--mut);max-width:32ch;}
+  @media(min-width:760px){ .foot-grid{grid-template-columns:1fr 1fr;} }
   footer h5{font-family:var(--ui);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--turq-d);margin-bottom:16px;}
   footer .fl a{display:block;color:var(--ink);font-size:.92rem;margin-bottom:10px;opacity:.85;transition:opacity .2s,color .2s;}
   footer .fl a:hover{opacity:1;color:var(--pink);}
@@ -465,12 +460,10 @@
 </section>
 
 <!-- ══ CTA BAND ══ -->
-<section class="band" id="kontakt" style="padding:0">
+<section class="band" id="kontakt">
   <div class="wrap">
-    <div>
-      <h2>Du musst das nicht allein tun. <span class="em">Lass uns gemeinsam</span> ein Leben schaffen, das sich stimmig anfühlt.</h2>
-      <p>Ich freue mich darauf, dich auf deinem Weg zurück zu dir zu begleiten.</p>
-    </div>
+    <img class="band-logo" src="images/yma_logo.svg" alt="yma" />
+    <p class="band-tag">Wieder Ruhe spüren, bei dir ankommen und in deinem Rhythmus leben.</p>
   </div>
 </section>
 
@@ -478,11 +471,6 @@
 <footer>
   <div class="wrap">
     <div class="foot-grid">
-      <div>
-        <img class="flogo" src="images/yma_logo.svg" alt="yma" />
-        <p class="ftag">Wieder Ruhe spüren, bei dir ankommen und in deinem Rhythmus leben.</p>
-        <div class="fdots"><i></i><i></i><i></i></div>
-      </div>
       <div>
         <h5>Navigation</h5>
         <div class="fl">
