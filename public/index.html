@@ -68,6 +68,7 @@
   nav.main a:hover,nav.main a.active{color:var(--turq-d);}
   nav.main a.active::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--turq);border-radius:2px;}
   header .book{margin-left:auto;}
+  @media(max-width:999px){ header .book{font-size:.78rem;padding:10px 18px;white-space:nowrap;} }
   @media(min-width:1000px){ nav.main{display:flex;} header .book{margin-left:0;} }
 
   /* soft decorative flourishes */
@@ -77,7 +78,7 @@
   .q-flo{width:130px;height:auto;margin-top:12px;opacity:.9;}
 
   /* ── hero ── */
-  .hero{position:relative;overflow:hidden;background:
+  .hero{position:relative;overflow:hidden;padding:0;background:
     radial-gradient(70% 60% at 6% 0%,#f3ecfb 0%,transparent 55%),
     radial-gradient(55% 60% at 2% 92%,#e9f6f1 0%,transparent 60%),
     linear-gradient(180deg,#fdfbff 0%,#fcf7fb 100%);}
