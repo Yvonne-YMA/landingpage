@@ -11,7 +11,7 @@
 <style>
   :root{
     /* brand: blue · turquoise · pink */
-    --navy:#284a7a; --blue:#2f73a6; --turq:#3ba8a4; --turq-d:#2c8a86;
+    --navy:#284a7a; --blue:#2f73a6; --turq:#3ba8a4; --turq-d:#2c8a86; --ruhe:#2e9ec2;
     --rose:#e386a1; --pink:#db5a90; --pink-d:#c74a7e;
     --ink:#2c3646; --mut:#6d7787; --paper:#ffffff;
     --soft:#f6fbfd; --soft-2:#fdf5f9; --soft-teal:#f1faf6; --line:#eef3f7;
@@ -119,7 +119,7 @@
   .val-dot{font-family:var(--disp);font-size:clamp(1.2rem,2vw,2rem);color:var(--rose);opacity:.7;line-height:1;padding:0 2px;align-self:center;}
   .val-blue{color:var(--blue);}
   .val-turq{color:var(--turq-d);}
-  .val-ruhe{color:var(--turq);}
+  .val-ruhe{color:var(--ruhe);}
   .val-pink{color:var(--pink);}
 
   /* ── section base ── */
@@ -233,7 +233,7 @@
   .plan .price{font-family:var(--disp);font-style:italic;color:var(--turq-d);font-weight:500;
     display:flex;flex-direction:column;margin-top:2px;line-height:1.15;
     padding-top:14px;border-top:1px solid rgba(59,168,164,.25);}
-  .plan .price-dur{font-size:clamp(1.35rem,2.2vw,1.7rem);}
+  .plan .price-dur{font-size:clamp(2.4rem,4vw,3.1rem);color:var(--navy);font-weight:600;font-style:normal;line-height:1.05;}
   .plan .price-amt{font-size:clamp(1.7rem,3vw,2.3rem);}
   .plan.feat .price{color:var(--pink);border-top-color:rgba(219,90,144,.25);}
   .plan .ptag{font-size:.62rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
@@ -254,13 +254,7 @@
   .band .wrap{text-align:center;padding:80px 30px;}
   .band-logo{width:200px;height:auto;margin:0 auto 28px;display:block;}
   .band-tag{font-family:var(--disp);font-style:italic;font-size:clamp(1.2rem,2.4vw,1.75rem);color:var(--navy);max-width:44ch;margin:0 auto;line-height:1.45;}
-  .band-values{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0;margin-top:26px;}
-  .bval{font-family:var(--ui);font-size:.66rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;padding:2px 12px;white-space:nowrap;}
-  .bval-dot{font-size:.6rem;color:var(--rose);opacity:.7;line-height:1;padding:0 1px;}
-  .bval-blue{color:var(--blue);}
-  .bval-turq-d{color:var(--turq-d);}
-  .bval-turq{color:var(--turq);}
-  .bval-pink{color:var(--pink);}
+  .band-values{margin:28px 0 22px;flex-wrap:wrap;row-gap:4px;}
 
   /* ── footer ── */
   footer{background:linear-gradient(180deg,#f1faf6 0%,#fbf4f8 100%);color:var(--ink);padding:74px 0 36px;border-top:3px solid var(--turq);}
@@ -489,16 +483,16 @@
 <section class="band" id="kontakt">
   <div class="wrap">
     <img class="band-logo" src="images/yma_logo.svg" alt="yma" />
-    <p class="band-tag">Wieder Ruhe spüren, bei dir ankommen und in deinem Rhythmus leben.</p>
-    <div class="band-values">
-      <span class="bval bval-blue">Klarheit</span>
-      <span class="bval-dot">·</span>
-      <span class="bval bval-turq">Ruhe</span>
-      <span class="bval-dot">·</span>
-      <span class="bval bval-turq-d">Rhythmus</span>
-      <span class="bval-dot">·</span>
-      <span class="bval bval-pink">Vertrauen</span>
+    <div class="values band-values">
+      <span class="val val-blue">Klarheit</span>
+      <span class="val-dot">·</span>
+      <span class="val val-ruhe">Ruhe</span>
+      <span class="val-dot">·</span>
+      <span class="val val-turq">Rhythmus</span>
+      <span class="val-dot">·</span>
+      <span class="val val-pink">Vertrauen</span>
     </div>
+    <p class="band-tag">Wieder Ruhe spüren, bei dir ankommen und in deinem Rhythmus leben.</p>
   </div>
 </section>
 
