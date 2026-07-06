@@ -135,8 +135,10 @@
     color:var(--turq-d);background:rgba(59,168,164,.09);border-radius:14px;padding:16px 22px;margin-top:16px;display:block;line-height:1.5;}
 
   /* ── themes: 3 immersive cards ── */
-  .themes .top{display:grid;grid-template-columns:1fr;gap:40px;align-items:end;margin-bottom:52px;}
-  @media(min-width:900px){ .themes .top{grid-template-columns:1fr auto;} }
+  .themes .top{display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:52px;}
+  .themes .lead{max-width:640px;}
+  .themes .lead h2::after{margin-left:auto;margin-right:auto;}
+  .themes .lead-cta{text-align:center;}
   .cards{display:grid;grid-template-columns:1fr;gap:28px;}
   @media(min-width:760px){ .cards{grid-template-columns:repeat(3,1fr);} }
   .card{background:#fff;border-radius:24px;box-shadow:0 26px 54px -40px rgba(90,110,150,.4);border:1px solid var(--line);overflow:hidden;
@@ -170,6 +172,7 @@
   .about h2{font-size:clamp(2rem,4vw,2.9rem);margin:14px 0 24px;}
   .about .q p{font-family:var(--disp);font-style:italic;font-size:clamp(1.2rem,1.9vw,1.5rem);color:var(--navy);line-height:1.45;margin-bottom:16px;}
   .about .q em{color:var(--pink);}
+  .about .q strong{font-weight:600;}
   .about .sign{margin-top:20px;font-family:var(--disp);font-style:italic;font-size:1.3rem;color:var(--blue);}
 
   /* ── approach: Der Weg journey ── */
@@ -179,8 +182,6 @@
   .journey{position:relative;display:grid;grid-template-columns:1fr;gap:46px;max-width:980px;margin:0 auto;}
   @media(min-width:860px){
     .journey{grid-template-columns:repeat(3,1fr);gap:22px;}
-    .journey::before{content:"";position:absolute;top:46px;left:17%;right:17%;height:2px;z-index:0;
-      background:linear-gradient(90deg,var(--blue),var(--turq),var(--pink));opacity:.45;}
   }
   .jstep{position:relative;z-index:1;text-align:center;padding:0 12px;}
   .jnum{display:flex;align-items:center;justify-content:center;width:92px;height:92px;border-radius:50%;margin:0 auto 26px;
@@ -398,9 +399,9 @@
     <div>
       <span class="kick p">Darum begleite ich dich</span>
       <div class="q">
-        <p>Weil ich selbst erlebt habe, wie schmerzhaft es sein kann, den Kontakt zu sich selbst zu verlieren — und wie viel sich verändert, wenn man <em>wieder bei sich ankommt.</em></p>
-        <p>Weil ich weiß, was möglich ist, wenn innere <em>Ruhe &amp; Vertrauen</em> zurückkehren.</p>
-        <p>Und weil ich daran glaube, dass jeder Mensch seinen <em>eigenen Rhythmus</em> in sich trägt.</p>
+        <p><strong>Weil ich selbst erlebt habe,</strong> wie schmerzhaft es sein kann, den Kontakt zu sich selbst zu verlieren — und wie viel sich verändert, wenn man <em>wieder bei sich ankommt.</em></p>
+        <p><strong>Weil ich weiß,</strong> was möglich ist, wenn innere <em>Ruhe &amp; Vertrauen</em> zurückkehren.</p>
+        <p><strong>Und weil ich daran glaube,</strong> dass jeder Mensch seinen <em>eigenen Rhythmus</em> in sich trägt.</p>
       </div>
     </div>
   </div>
@@ -411,12 +412,11 @@
   <div class="wrap">
     <div class="head">
       <span class="kick t">So begleite ich dich</span>
-      <h2>Vier Haltungen, auf die du dich verlassen kannst</h2>
     </div>
     <div class="journey">
-      <div class="jstep"><span class="jnum">01</span><h3>Ich glaube <span class="em">an dich</span></h3><p>von Anfang an und auch dann, wenn du es selbst vielleicht gerade nicht kannst.</p></div>
-      <div class="jstep"><span class="jnum">02</span><h3>Ich halte <span class="em">den Raum</span></h3><p>in dem du einfach sein darfst, dich gesehen fühlst und bei dir ankommen kannst.</p></div>
-      <div class="jstep"><span class="jnum">03</span><h3>Ich erkenne <span class="em">den Kern</span></h3><p>das, was dich wirklich bewegt.</p></div>
+      <div class="jstep"><h3>Ich glaube <span class="em">an dich</span></h3><p>von Anfang an und auch dann, wenn du es selbst vielleicht gerade nicht kannst.</p></div>
+      <div class="jstep"><h3>Ich halte <span class="em">den Raum</span></h3><p>in dem du einfach sein darfst, dich gesehen fühlst und bei dir ankommen kannst.</p></div>
+      <div class="jstep"><h3>Ich erkenne <span class="em">den Kern</span></h3><p>das, was dich wirklich bewegt.</p></div>
     </div>
 
     <div class="jcta">
