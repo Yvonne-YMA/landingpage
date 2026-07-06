@@ -115,7 +115,7 @@
   .strip{background:linear-gradient(180deg,#ffffff 0%,var(--soft-teal) 100%);padding:60px 0 64px;}
   .values{display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;gap:0;}
   @media(max-width:680px){.values{flex-wrap:wrap;row-gap:4px;}}
-  .val{font-family:var(--disp);font-size:clamp(1.6rem,3.2vw,3rem);font-weight:500;letter-spacing:.02em;padding:8px 20px;white-space:nowrap;}
+  .val{font-family:var(--disp);font-size:clamp(1.6rem,3.2vw,3rem);font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:8px 20px;white-space:nowrap;}
   .val-dot{font-family:var(--disp);font-size:clamp(1.2rem,2vw,2rem);color:var(--rose);opacity:.7;line-height:1;padding:0 2px;align-self:center;}
   .val-blue{color:var(--blue);}
   .val-turq{color:var(--turq-d);}
@@ -254,6 +254,13 @@
   .band .wrap{text-align:center;padding:80px 30px;}
   .band-logo{width:200px;height:auto;margin:0 auto 28px;display:block;}
   .band-tag{font-family:var(--disp);font-style:italic;font-size:clamp(1.2rem,2.4vw,1.75rem);color:var(--navy);max-width:44ch;margin:0 auto;line-height:1.45;}
+  .band-values{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0;margin-top:26px;}
+  .bval{font-family:var(--ui);font-size:.66rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;padding:2px 12px;white-space:nowrap;}
+  .bval-dot{font-size:.6rem;color:var(--rose);opacity:.7;line-height:1;padding:0 1px;}
+  .bval-blue{color:var(--blue);}
+  .bval-turq-d{color:var(--turq-d);}
+  .bval-turq{color:var(--turq);}
+  .bval-pink{color:var(--pink);}
 
   /* ── footer ── */
   footer{background:linear-gradient(180deg,#f1faf6 0%,#fbf4f8 100%);color:var(--ink);padding:74px 0 36px;border-top:3px solid var(--turq);}
@@ -483,6 +490,15 @@
   <div class="wrap">
     <img class="band-logo" src="images/yma_logo.svg" alt="yma" />
     <p class="band-tag">Wieder Ruhe spüren, bei dir ankommen und in deinem Rhythmus leben.</p>
+    <div class="band-values">
+      <span class="bval bval-blue">Klarheit</span>
+      <span class="bval-dot">·</span>
+      <span class="bval bval-turq">Ruhe</span>
+      <span class="bval-dot">·</span>
+      <span class="bval bval-turq-d">Rhythmus</span>
+      <span class="bval-dot">·</span>
+      <span class="bval bval-pink">Vertrauen</span>
+    </div>
   </div>
 </section>
 
