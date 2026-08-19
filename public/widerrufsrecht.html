@@ -12,10 +12,17 @@
       body { font-family: 'Poppins', system-ui, sans-serif; color: #2c3646; background: #fff; }
       h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; color: #284a7a; }
       .legal h2 { margin-top: 2em; }
-      .legal address { font-style: normal; margin: 0.6em 0; }
+      .legal address { font-style: normal; margin: 0.6em 0; line-height: 1.6; }
       .legal .wr-sub { font-style: italic; color: #6d7787; margin-top: -0.4em; }
-      .legal .wr-form { border: 1px solid #eef3f7; border-radius: 12px; padding: 20px 24px; background: #f9fcfd; }
-      .legal .wr-form p { margin: 0.4em 0; }
+      .legal .wr-form { border: 1px solid #e4eef3; border-radius: 16px; padding: 30px 32px; background: #f9fcfd; }
+      .legal .wr-form .wr-note-top { color: #6d7787; font-style: italic; margin: 0 0 22px; }
+      .legal .wr-form address { margin: 0 0 26px; }
+      .legal .wr-form .wr-field { margin: 0 0 28px; padding-bottom: 12px; border-bottom: 1px dashed #cddbe4; }
+      .legal .wr-form .wr-field small { display: block; margin-top: 4px; color: #6d7787; }
+      .legal .wr-form .wr-legend { margin: 6px 0 0; color: #6d7787; font-size: 0.9rem; }
+      .legal .form-cta { margin: 2em 0; }
+      .legal .form-btn { display: inline-flex; align-items: center; gap: .5em; font-weight: 600; font-size: .95rem; background: #db5a90; color: #fff; padding: 13px 28px; border-radius: 999px; text-decoration: none; box-shadow: 0 12px 26px -14px rgba(219,90,144,.6); transition: background .2s, transform .2s; }
+      .legal .form-btn:hover { background: #c74a7e; transform: translateY(-2px); }
       .legal .wr-version { margin-top: 2.5em; font-size: 0.85rem; color: #6d7787; }
     </style>
   </head>
@@ -47,17 +54,26 @@
         <p>Haben Sie verlangt, dass die Dienstleistungen während der Widerrufsfrist beginnen sollen, so haben Sie uns einen angemessenen Betrag zu zahlen, der dem Anteil der bis zu dem Zeitpunkt, zu dem Sie uns von der Ausübung des Widerrufsrechts hinsichtlich dieses Vertrags unterrichten, bereits erbrachten Dienstleistungen im Vergleich zum Gesamtumfang der im Vertrag vorgesehenen Dienstleistungen entspricht.</p>
 
         <h2>Muster-Widerrufsformular</h2>
-        <p>(Wenn Sie den Vertrag widerrufen wollen, dann füllen Sie bitte dieses Formular aus und senden Sie es zurück.)</p>
+        <p class="wr-sub">gemäß gesetzlichem Muster der Anlage 2 zu Artikel 246a § 1 Absatz 2 Satz 1 Nummer 1 und § 2 Absatz 2 Nummer 2 EGBGB</p>
         <div class="wr-form">
-          <p>An Yvonne Müller-Andert, Schellingstraße 109a, 80798 München, E-Mail: yvonne@yma.one:</p>
-          <p>Hiermit widerrufe(n) ich/wir (*) den von mir/uns (*) abgeschlossenen Vertrag über den Kauf der folgenden Waren (*)/die Erbringung der folgenden Dienstleistung (*)</p>
-          <p>Bestellt am (*)/erhalten am (*)</p>
-          <p>Name des/der Verbraucher(s)</p>
-          <p>Anschrift des/der Verbraucher(s)</p>
-          <p>Unterschrift des/der Verbraucher(s) (nur bei Mitteilung auf Papier)</p>
-          <p>Datum</p>
-          <p>(*) Unzutreffendes streichen.</p>
+          <p class="wr-note-top">(Wenn Sie den Vertrag widerrufen wollen, dann füllen Sie bitte dieses Formular aus und senden Sie es zurück.)</p>
+          <p>An</p>
+          <address>
+            Yvonne Müller-Andert<br />
+            Schellingstraße 109a<br />
+            80798 München<br />
+            E-Mail: <a href="mailto:yvonne@yma.one">yvonne@yma.one</a>
+          </address>
+          <p class="wr-field">Hiermit widerrufe(n) ich/wir (*) den von mir/uns (*) abgeschlossenen Vertrag über den Kauf der folgenden Waren (*) / die Erbringung der folgenden Dienstleistung (*)</p>
+          <p class="wr-field">Bestellt am (*) / erhalten am (*)</p>
+          <p class="wr-field">Name des/der Verbraucher(s)</p>
+          <p class="wr-field">Anschrift des/der Verbraucher(s)</p>
+          <p class="wr-field">Unterschrift des/der Verbraucher(s)<small>(nur bei Mitteilung auf Papier)</small></p>
+          <p class="wr-field">Datum</p>
+          <p class="wr-legend">(*) Unzutreffendes streichen.</p>
         </div>
+
+        <p class="form-cta"><a class="form-btn" href="vertrag-kuendigen">Vertrag kündigen &rarr;</a></p>
 
         <p class="wr-version">Version 01 · Stand 08/2026</p>
       </div>

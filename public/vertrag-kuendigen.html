@@ -12,7 +12,11 @@
       body { font-family: 'Poppins', system-ui, sans-serif; color: #2c3646; background: #fff; }
       h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; color: #284a7a; }
       .legal h2 { margin-top: 2em; }
-      .legal address { font-style: normal; margin: 0.6em 0; }
+      .legal address { font-style: normal; margin: 0.6em 0; line-height: 1.6; }
+      .legal .form-cta { margin: 1.8em 0 0.8em; }
+      .legal .form-btn { display: inline-flex; align-items: center; gap: .5em; font-weight: 600; font-size: .95rem; background: #db5a90; color: #fff; padding: 13px 28px; border-radius: 999px; text-decoration: none; box-shadow: 0 12px 26px -14px rgba(219,90,144,.6); transition: background .2s, transform .2s; }
+      .legal .form-btn:hover { background: #c74a7e; transform: translateY(-2px); }
+      .legal .tk-hint { color: #6d7787; font-size: 0.9rem; margin-top: 0.4em; }
     </style>
   </head>
   <body>
@@ -24,11 +28,12 @@
         <h1 class="legal__title">Vertrag kündigen</h1>
 
         <p>
-          Möchtest Du einen mit mir geschlossenen Vertrag kündigen, genügt eine
-          eindeutige Erklärung – zum Beispiel per E-Mail. Bitte teile mir dabei
-          Deinen Namen und die gebuchte Leistung mit, damit ich Deine Kündigung
-          eindeutig zuordnen kann.
+          Deinen Vertrag kannst Du direkt über mein Kündigungsformular kündigen.
         </p>
+
+        <!-- TODO: href durch das externe Kündigungsformular ersetzen, sobald verfügbar -->
+        <p class="form-cta"><a class="form-btn" href="#">Zum Kündigungsformular &rarr;</a></p>
+        <p class="tk-hint">Das Online-Kündigungsformular folgt in Kürze. Bis dahin genügt eine formlose Kündigung per E-Mail unter Angabe Deines Namens und der gebuchten Leistung.</p>
 
         <address>
           Yvonne Müller-Andert<br />
