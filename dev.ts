@@ -1,5 +1,5 @@
 const root = `${import.meta.dir}/public`;
-const port = Number(process.env.PORT) || 3000;
+const port = Number(process.env.PORT) || 3100;
 
 // Resolve a request path to a file, mirroring GitHub Pages behaviour:
 // try the exact path, then `<path>.html`, then `<path>/index.html`.

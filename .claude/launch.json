@@ -5,7 +5,7 @@
       "name": "yma-dev",
       "runtimeExecutable": "bun",
       "runtimeArgs": ["dev"],
-      "port": 3000
+      "port": 3100
     }
   ]
 }
