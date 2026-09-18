@@ -18,8 +18,11 @@
       .legal .sf-field textarea { min-height: 150px; resize: vertical; }
       .legal .sf-field input:focus, .legal .sf-field textarea:focus { outline: none; border-color: #3ba8a4; }
       .legal .sf-honey { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-      .legal .sf-submit { display: inline-flex; align-items: center; gap: .5em; font-weight: 600; font-size: 0.95rem; background: #db5a90; color: #fff; border: none; cursor: pointer; padding: 13px 30px; border-radius: 999px; box-shadow: 0 12px 26px -14px rgba(219,90,144,.6); transition: background .2s, transform .2s; }
+      .legal .sf-submit { display: inline-flex; align-items: center; gap: .5em; font-weight: 600; font-size: 0.95rem; background: #db5a90; color: #fff; border: none; cursor: pointer; padding: 13px 30px; border-radius: 999px; box-shadow: 0 12px 26px -14px rgba(219,90,144,.6); text-decoration: none; transition: background .2s, transform .2s; }
       .legal .sf-submit:hover { background: #c74a7e; transform: translateY(-2px); }
+      .legal .sf-submit[disabled] { opacity: .6; cursor: default; transform: none; }
+      .legal .sf-error { color: #c0392b; margin-top: 16px; font-size: 0.92rem; }
+      .legal .sf-home-wrap { margin-top: 1.8em; }
     </style>
   </head>
   <body>
@@ -78,5 +81,6 @@
         </nav>
       </div>
     </footer>
+    <script src="form.js"></script>
   </body>
 </html>
