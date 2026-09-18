@@ -34,29 +34,20 @@
         <h1 class="legal__title">Vertrag kündigen</h1>
 
         <p>
-          Hier kannst Du Deinen Vertrag kündigen. Bitte gib Deine E-Mail-Adresse an und
-          schildere kurz Deine Kündigung – idealerweise mit Deinem Namen und der
-          gebuchten Leistung. Details zu Laufzeit und Beendigung findest Du in meinen
+          Details zu Laufzeit und Beendigung Deines Vertrags findest Du in meinen
           <a href="agb">AGB</a>.
         </p>
 
-        <form class="sf-form" action="https://api.staticforms.dev/submit" method="POST">
-          <input type="hidden" name="apiKey" value="sf_d53bf898a645cb2300b6d2ff" />
-          <input type="hidden" name="subject" value="Kündigung – yma.one" />
-          <input class="sf-honey" type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
-
-          <div class="sf-field">
-            <label for="kd-email">Deine E-Mail-Adresse</label>
-            <input id="kd-email" type="email" name="email" required />
-          </div>
-
-          <div class="sf-field">
-            <label for="kd-message">Deine Kündigung</label>
-            <textarea id="kd-message" name="message" required placeholder="Hiermit kündige ich meinen Vertrag … (bitte Name und gebuchte Leistung angeben)"></textarea>
-          </div>
-
-          <button class="sf-submit" type="submit">Kündigung absenden</button>
-        </form>
+        <div id="sf-kuendigung" class="sf-embed"></div>
+        <script src="https://www.staticforms.dev/scripts/staticforms.js" defer></script>
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            StaticForms.render(
+              document.getElementById("sf-kuendigung"),
+              "sf_d53bf898a645cb2300b6d2ff"
+            );
+          });
+        </script>
       </div>
     </main>
 
@@ -81,6 +72,5 @@
         </nav>
       </div>
     </footer>
-    <script src="form.js"></script>
   </body>
 </html>

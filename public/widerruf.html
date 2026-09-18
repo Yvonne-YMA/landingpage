@@ -34,29 +34,20 @@
         <h1 class="legal__title">Vertrag widerrufen</h1>
 
         <p>
-          Hier kannst Du Deinen Vertrag widerrufen. Bitte gib Deine E-Mail-Adresse an
-          und schildere kurz Deinen Widerruf – idealerweise mit Deinem Namen und der
-          gebuchten Leistung. Die Einzelheiten zu Deinem Widerrufsrecht findest Du in
-          meiner <a href="widerrufsrecht">Widerrufsbelehrung</a>.
+          Die Einzelheiten zu Deinem Widerrufsrecht findest Du in meiner
+          <a href="widerrufsrecht">Widerrufsbelehrung</a>.
         </p>
 
-        <form class="sf-form" action="https://api.staticforms.dev/submit" method="POST">
-          <input type="hidden" name="apiKey" value="sf_5708aa1846762bcee408b4fc" />
-          <input type="hidden" name="subject" value="Widerruf – yma.one" />
-          <input class="sf-honey" type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
-
-          <div class="sf-field">
-            <label for="wr-email">Deine E-Mail-Adresse</label>
-            <input id="wr-email" type="email" name="email" required />
-          </div>
-
-          <div class="sf-field">
-            <label for="wr-message">Dein Widerruf</label>
-            <textarea id="wr-message" name="message" required placeholder="Hiermit widerrufe ich meinen Vertrag … (bitte Name und gebuchte Leistung angeben)"></textarea>
-          </div>
-
-          <button class="sf-submit" type="submit">Widerruf absenden</button>
-        </form>
+        <div id="sf-widerruf" class="sf-embed"></div>
+        <script src="https://www.staticforms.dev/scripts/staticforms.js" defer></script>
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            StaticForms.render(
+              document.getElementById("sf-widerruf"),
+              "sf_5708aa1846762bcee408b4fc"
+            );
+          });
+        </script>
       </div>
     </main>
 
@@ -81,6 +72,5 @@
         </nav>
       </div>
     </footer>
-    <script src="form.js"></script>
   </body>
 </html>
