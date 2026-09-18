@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Vertrag widerrufen – yma | Yvonne Müller-Andert" />
+    <meta name="robots" content="noindex" />
+    <title>Vertrag widerrufen – yma</title>
+    <link rel="stylesheet" href="fonts.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body { font-family: 'Poppins', system-ui, sans-serif; color: #2c3646; background: #fff; }
+      h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; color: #284a7a; }
+      .legal form.sf-form { margin-top: 1.8em; max-width: 520px; }
+      .legal .sf-field { margin-bottom: 20px; }
+      .legal .sf-field label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 6px; }
+      .legal .sf-field input, .legal .sf-field textarea { width: 100%; box-sizing: border-box; font-family: 'Poppins', system-ui, sans-serif; font-size: 1rem; color: #2c3646; padding: 12px 14px; border: 1px solid #d8e3ea; border-radius: 12px; background: #fff; }
+      .legal .sf-field textarea { min-height: 150px; resize: vertical; }
+      .legal .sf-field input:focus, .legal .sf-field textarea:focus { outline: none; border-color: #3ba8a4; }
+      .legal .sf-honey { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+      .legal .sf-submit { display: inline-flex; align-items: center; gap: .5em; font-weight: 600; font-size: 0.95rem; background: #db5a90; color: #fff; border: none; cursor: pointer; padding: 13px 30px; border-radius: 999px; box-shadow: 0 12px 26px -14px rgba(219,90,144,.6); transition: background .2s, transform .2s; }
+      .legal .sf-submit:hover { background: #c74a7e; transform: translateY(-2px); }
+    </style>
+  </head>
+  <body>
+    <div class="bg-soft" aria-hidden="true"></div>
+
+    <main id="main" class="legal">
+      <div class="legal__wrap">
+        <a class="legal__back" href="index.html">&larr; Zur Startseite</a>
+        <h1 class="legal__title">Vertrag widerrufen</h1>
+
+        <p>
+          Hier kannst Du Deinen Vertrag widerrufen. Bitte gib Deine E-Mail-Adresse an
+          und schildere kurz Deinen Widerruf – idealerweise mit Deinem Namen und der
+          gebuchten Leistung. Die Einzelheiten zu Deinem Widerrufsrecht findest Du in
+          meiner <a href="widerrufsrecht">Widerrufsbelehrung</a>.
+        </p>
+
+        <form class="sf-form" action="https://api.staticforms.dev/submit" method="POST">
+          <input type="hidden" name="apiKey" value="sf_5708aa1846762bcee408b4fc" />
+          <input type="hidden" name="subject" value="Widerruf – yma.one" />
+          <input class="sf-honey" type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+          <div class="sf-field">
+            <label for="wr-email">Deine E-Mail-Adresse</label>
+            <input id="wr-email" type="email" name="email" required />
+          </div>
+
+          <div class="sf-field">
+            <label for="wr-message">Dein Widerruf</label>
+            <textarea id="wr-message" name="message" required placeholder="Hiermit widerrufe ich meinen Vertrag … (bitte Name und gebuchte Leistung angeben)"></textarea>
+          </div>
+
+          <button class="sf-submit" type="submit">Widerruf absenden</button>
+        </form>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer__inner">
+        <img
+          class="footer__logo"
+          src="images/logo.svg"
+          width="800"
+          height="294"
+          alt="yma"
+        />
+        <p class="footer__tag"><span class="footer__tag--main">von beschäftigt zu erfüllt</span><br /><span class="footer__tag--sub">Ich begleite Dich<br />auf Deinem Weg zurück zu Dir.</span></p>
+        <nav class="footer__nav" aria-label="Rechtliches">
+          <a href="index.html">Home</a>
+          <a href="impressum">Impressum</a>
+          <a href="datenschutz">Datenschutz</a>
+          <a href="agb">AGB</a>
+          <a href="widerrufsrecht">Widerrufsrecht</a>
+          <a href="widerruf">Vertrag widerrufen</a>
+          <a href="kündigung">Vertrag kündigen</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>
