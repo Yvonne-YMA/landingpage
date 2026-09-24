@@ -12,7 +12,7 @@
       body { font-family: 'Poppins', system-ui, sans-serif; color: #2c3646; background: #fff; }
       h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; color: #284a7a; }
       .legal .sf-home-wrap { margin-top: 1.8em; }
-      .danke-clover { background: linear-gradient(135deg, #2f73a6 0%, #3ba8a4 50%, #db5a90 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
+      .danke-clover { display: inline-block; width: 0.8em; height: 0.8em; vertical-align: -0.02em; margin-left: 0.12em; }
       .legal .sf-submit { display: inline-flex; align-items: center; gap: .5em; font-weight: 600; font-size: 0.95rem; background: #db5a90; color: #fff; padding: 13px 30px; border-radius: 999px; text-decoration: none; box-shadow: 0 12px 26px -14px rgba(219,90,144,.6); transition: background .2s, transform .2s; }
       .legal .sf-submit:hover { background: #c74a7e; transform: translateY(-2px); }
     </style>
@@ -23,7 +23,21 @@
     <main id="main" class="legal">
       <div class="legal__wrap">
         <a class="legal__back" href="index.html">&larr; Zur Startseite</a>
-        <h1 class="legal__title">Danke <span class="danke-clover" aria-hidden="true">&#9752;&#xFE0E;</span></h1>
+        <h1 class="legal__title">Danke <svg class="danke-clover" viewBox="-24 -24 48 48" aria-hidden="true">
+            <defs>
+              <linearGradient id="dankeGrad" gradientUnits="userSpaceOnUse" x1="-22" y1="-22" x2="22" y2="22">
+                <stop offset="0" stop-color="#2f73a6" />
+                <stop offset=".5" stop-color="#3ba8a4" />
+                <stop offset="1" stop-color="#db5a90" />
+              </linearGradient>
+            </defs>
+            <g fill="none" stroke="url(#dankeGrad)" stroke-width="2.6" stroke-linejoin="round">
+              <path d="M0,0 C -11,-4 -12,-21 0,-16 C 12,-21 11,-4 0,0 Z" />
+              <path d="M0,0 C -11,-4 -12,-21 0,-16 C 12,-21 11,-4 0,0 Z" transform="rotate(90)" />
+              <path d="M0,0 C -11,-4 -12,-21 0,-16 C 12,-21 11,-4 0,0 Z" transform="rotate(180)" />
+              <path d="M0,0 C -11,-4 -12,-21 0,-16 C 12,-21 11,-4 0,0 Z" transform="rotate(270)" />
+            </g>
+          </svg></h1>
         <p>
           Deine Angaben wurden erfolgreich an mich gesendet. Du erhältst zudem eine Bestätigung
           per E-Mail.
