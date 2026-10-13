@@ -46,6 +46,9 @@
 
   /* logo */
   .logo{width:140px;height:auto;display:block;overflow:visible;}
+  .brand{display:flex;flex-direction:column;align-items:center;line-height:1;}
+  .brand .logo{width:124px;}
+  .brand-tag{font-family:var(--disp);font-style:italic;font-size:.78rem;letter-spacing:.04em;color:var(--mut);margin-top:-4px;white-space:nowrap;}
   footer .flogo{width:150px;height:auto;display:block;overflow:visible;margin-bottom:16px;}
   #defs{position:absolute;width:0;height:0;}
 
@@ -316,7 +319,7 @@
 <!-- ══ HEADER ══ -->
 <header>
   <div class="wrap">
-    <a href="#top" aria-label="yma"><img class="logo" src="images/yma_logo.svg" alt="yma" /></a>
+    <a href="#top" class="brand" aria-label="yma – your mindful alignment"><img class="logo" src="images/yma_logo.svg" alt="yma" /><span class="brand-tag">your mindful alignment</span></a>
     <nav class="main">
       <a href="#themen">Für Dich</a>
       <a href="#weg">Mein Ansatz</a>
