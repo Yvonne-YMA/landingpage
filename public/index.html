@@ -140,6 +140,8 @@
   /* ── themes: 3 immersive cards ── */
   .themes .top{display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:52px;}
   .themes .lead{max-width:640px;}
+  .br-m{display:none;}
+  @media(max-width:759px){ .br-m{display:inline;} }
   .themes .lead h2::after{margin-left:auto;margin-right:auto;}
   .themes .lead-cta{text-align:center;}
   .cards{display:grid;grid-template-columns:1fr;gap:28px;}
@@ -372,7 +374,7 @@
       <div class="lead">
         <span class="kick t">Ich begleite Dich</span>
         <h2>Kennst Du das Gefühl,</h2>
-        <p>nur noch zu funktionieren statt wirklich zu leben?<br>Ständig im Außen, im Denken, im Organisieren …<br>und dabei immer weiter von Dir selbst entfernt?</p>
+        <p>nur noch zu funktionieren<br class="br-m"> statt wirklich zu leben?<br>Ständig im Außen, im Denken,<br class="br-m"> im Organisieren …<br>und dabei immer weiter<br class="br-m"> von Dir selbst entfernt?</p>
         <span class="lead-cta">Genau dort starten wir beide gemeinsam.</span>
       </div>
     </div>
