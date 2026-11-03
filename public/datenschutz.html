@@ -189,5 +189,11 @@
         </nav>
       </div>
     </footer>
+    <!-- Bildschutz: kein Rechtsklick/Herausziehen bei Bildern und Logo -->
+    <style>img,svg{-webkit-user-drag:none;-webkit-touch-callout:none;user-select:none;}</style>
+    <script>
+    document.addEventListener('contextmenu',function(e){if(e.target.closest('img,svg,.img,.hero-photo'))e.preventDefault();});
+    document.addEventListener('dragstart',function(e){if(e.target.closest('img,svg'))e.preventDefault();});
+    </script>
   </body>
 </html>
