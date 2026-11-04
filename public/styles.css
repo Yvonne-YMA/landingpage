@@ -1111,6 +1111,11 @@ h2 .hy {
   color: var(--ink);
 }
 
+/* Zwischenüberschrift direkt unter Überschrift: gleicher Abstand wie Überschrift → Text */
+.legal h3 + h4 {
+  margin-top: 0;
+}
+
 .legal p,
 .legal li {
   margin: 0 0 1rem;
