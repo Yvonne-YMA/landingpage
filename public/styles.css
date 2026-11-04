@@ -1272,3 +1272,117 @@ h2 .hy {
   line-height: 1.2;
   color: #6d7787;
 }
+
+/* Druckansicht / PDF für Rechtsseiten: nur sauberer Text, fette Überschriften */
+@media print {
+  @page {
+    size: A4;
+    margin: 18mm 18mm 20mm;
+  }
+
+  body {
+    background: #fff !important;
+    color: #000;
+  }
+
+  .bg-soft,
+  .legal__back,
+  .site-footer,
+  .site-header,
+  nav {
+    display: none !important;
+  }
+
+  .legal {
+    padding: 0 !important;
+  }
+
+  .legal__wrap {
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+
+  .legal__wrap::before {
+    content: "yma · Yvonne Müller-Andert · yma.one";
+    display: block;
+    margin-bottom: 8mm;
+    padding-bottom: 3mm;
+    border-bottom: 0.5pt solid #999;
+    font-size: 8.5pt;
+    letter-spacing: 0.04em;
+    color: #555;
+  }
+
+  .legal .legal__title {
+    margin: 0 0 6mm !important;
+    font-size: 20pt !important;
+    font-weight: 700 !important;
+    color: #000 !important;
+  }
+
+  .legal h2 {
+    margin: 7mm 0 2mm !important;
+    font-size: 13.5pt !important;
+    font-weight: 700 !important;
+    color: #000 !important;
+  }
+
+  .legal h3 {
+    margin: 4.5mm 0 1.5mm !important;
+    font-size: 11pt !important;
+    font-weight: 700 !important;
+    color: #000 !important;
+  }
+
+  .legal h4 {
+    margin: 3.5mm 0 1mm !important;
+    font-size: 10pt !important;
+    font-weight: 700 !important;
+    color: #000 !important;
+  }
+
+  .legal h3 + h4 {
+    margin-top: 0 !important;
+  }
+
+  .legal h2,
+  .legal h3,
+  .legal h4 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .legal p,
+  .legal li,
+  .legal address {
+    margin: 0 0 2.5mm !important;
+    font-size: 10pt !important;
+    line-height: 1.45 !important;
+    color: #000 !important;
+    orphans: 3;
+    widows: 3;
+  }
+
+  .legal .ds-caps {
+    font-size: 9pt !important;
+  }
+
+  .legal a {
+    color: #000 !important;
+    text-decoration: none !important;
+  }
+
+  .legal .ds-version,
+  .legal .agb-version,
+  .legal .wr-version {
+    margin-top: 6mm !important;
+    font-size: 8.5pt !important;
+    color: #555 !important;
+  }
+
+  .hy {
+    transform: none !important;
+    margin-inline: 0 !important;
+  }
+}
