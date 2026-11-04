@@ -1085,7 +1085,7 @@ h2 .hy {
 }
 
 .legal h2 {
-  margin: 2em 0 0.5rem;
+  margin: clamp(2rem, 5vw, 2.75rem) 0 0.85rem;
   font-family: var(--font-display);
   font-size: clamp(1.4rem, 3.4vw, 1.8rem);
   font-weight: 400;
@@ -1095,7 +1095,7 @@ h2 .hy {
 }
 
 .legal h3 {
-  margin: 1.95rem 0 0.5rem;
+  margin: 1.6rem 0 0.5rem;
   font-family: var(--font-body);
   font-size: 1.08rem;
   font-weight: 600;
@@ -1104,16 +1104,11 @@ h2 .hy {
 }
 
 .legal h4 {
-  margin: 1.95rem 0 0.5rem;
+  margin: 1.2rem 0 0.4rem;
   font-family: var(--font-body);
   font-size: 0.98rem;
   font-weight: 600;
   color: var(--ink);
-}
-
-/* Zwischenüberschrift direkt unter Überschrift: gleicher Abstand wie Überschrift → Text */
-.legal h3 + h4 {
-  margin-top: 0;
 }
 
 .legal p,
@@ -1143,11 +1138,33 @@ h2 .hy {
 }
 
 .legal address {
-  margin: 0 0 1rem;
   font-style: normal;
-  font-size: 1.0625rem;
   line-height: 1.7;
   color: var(--ink-muted);
+}
+
+/* Einheitliche Abstände (neu) – aktiv auf Seiten mit class="legal legal--even" */
+.legal--even h2 {
+  margin: 2em 0 0.5rem;
+}
+
+.legal--even h3 {
+  margin: 1.95rem 0 0.5rem;
+}
+
+.legal--even h4 {
+  margin: 1.95rem 0 0.5rem;
+}
+
+/* Zwischenüberschrift direkt unter Überschrift: gleicher Abstand wie Überschrift → Text */
+.legal--even h3 + h4 {
+  margin-top: 0;
+}
+
+.legal--even address {
+  margin: 0 0 1rem;
+  font-size: 1.0625rem;
+  line-height: 1.7;
 }
 
 .legal__back {
