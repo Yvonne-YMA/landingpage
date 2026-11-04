@@ -1085,7 +1085,7 @@ h2 .hy {
 }
 
 .legal h2 {
-  margin: clamp(2rem, 5vw, 2.75rem) 0 0.85rem;
+  margin: 2em 0 0.5rem;
   font-family: var(--font-display);
   font-size: clamp(1.4rem, 3.4vw, 1.8rem);
   font-weight: 400;
@@ -1095,7 +1095,7 @@ h2 .hy {
 }
 
 .legal h3 {
-  margin: 1.6rem 0 0.5rem;
+  margin: 1.95rem 0 0.5rem;
   font-family: var(--font-body);
   font-size: 1.08rem;
   font-weight: 600;
@@ -1104,7 +1104,7 @@ h2 .hy {
 }
 
 .legal h4 {
-  margin: 1.2rem 0 0.4rem;
+  margin: 1.95rem 0 0.5rem;
   font-family: var(--font-body);
   font-size: 0.98rem;
   font-weight: 600;
@@ -1138,7 +1138,9 @@ h2 .hy {
 }
 
 .legal address {
+  margin: 0 0 1rem;
   font-style: normal;
+  font-size: 1.0625rem;
   line-height: 1.7;
   color: var(--ink-muted);
 }
