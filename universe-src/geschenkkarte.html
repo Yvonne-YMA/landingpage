@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<title>yma universe – Geschenkkarte</title>
+<link rel="stylesheet" href="/fonts.css" />
+<style>
+  @page { size: A5 landscape; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 210mm; height: 148mm; }
+  body { font-family: "Poppins", system-ui, sans-serif; color: #2c3646; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .card { position: relative; width: 210mm; height: 148mm; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden;
+          background: linear-gradient(135deg, #fffdf8 0%, #fdf7ec 55%, #fbf1f5 100%); }
+  .left { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 12mm 10mm;
+          background: radial-gradient(80% 70% at 50% 40%, #233466 0%, #172449 60%, #10193a 100%); color: #eef1fb; }
+  .left .dot { position: absolute; width: 1.2mm; height: 1.2mm; border-radius: 50%; background: #fff; opacity: .55; }
+  .left svg.big { width: 42mm; height: 42mm; filter: drop-shadow(0 0 6mm rgba(246,217,138,.6)); }
+  .left h1 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: 30pt; line-height: 1; margin-top: 5mm;
+             color: #f6d98a; }
+  .left .sub { font-family: "Cormorant Garamond", Georgia, serif; font-size: 15pt; margin-top: 2mm; }
+  .left .tag { font-size: 8.5pt; color: #c3cbe6; margin-top: 2mm; }
+  .right { padding: 13mm 13mm 11mm; display: flex; flex-direction: column; }
+  .kick { font-size: 7.5pt; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: #db5a90; }
+  .lines { margin-top: 6mm; }
+  .line { display: flex; align-items: flex-end; gap: 3mm; margin-bottom: 6mm; font-family: "Cormorant Garamond", Georgia, serif; font-size: 14pt; color: #284a7a; }
+  .line span.fill { flex: 1; border-bottom: .3mm solid #c9b98f; height: 6mm; }
+  h2 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: 15pt; color: #284a7a; margin-top: 2mm; }
+  ol { list-style: none; margin-top: 3mm; counter-reset: s; }
+  ol li { position: relative; padding-left: 7mm; margin-bottom: 2.6mm; font-size: 8.8pt; line-height: 1.45; counter-increment: s; }
+  ol li::before { content: counter(s); position: absolute; left: 0; top: .2mm; width: 4.6mm; height: 4.6mm; border-radius: 50%;
+                  background: #f6d98a; color: #3a2a10; font-size: 7pt; font-weight: 600; display: grid; place-items: center; }
+  ol b { color: #284a7a; }
+  .pw { display: block; width: 100%; border-bottom: .3mm solid #c9b98f; height: 7mm; }
+  .foot { margin-top: auto; display: flex; align-items: flex-end; justify-content: space-between; font-size: 7.5pt; color: #6d7787; }
+  .foot img { width: 22mm; height: auto; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="left">
+    <svg class="big" viewBox="0 0 100 100" aria-hidden="true">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff3c9"/><stop offset=".55" stop-color="#f6d98a"/><stop offset="1" stop-color="#eab36a"/></linearGradient></defs>
+      <path d="M50 4 L62 36 L96 38 L69 59 L79 93 L50 73 L21 93 L31 59 L4 38 L38 36 Z" fill="url(#g)" stroke="#fff3c9" stroke-width="1.5" stroke-linejoin="round"/>
+    </svg>
+    <h1>yma universe</h1>
+    <p class="sub">24 Sterne nur für Dich</p>
+    <p class="tag">Jeden Tag ein kleines Strahlen, das Dich trägt.</p>
+  </div>
+  <div class="right">
+    <p class="kick">Ein Geschenk für Dich</p>
+    <div class="lines">
+      <div class="line">Für <span class="fill"></span></div>
+      <div class="line">Von <span class="fill"></span></div>
+    </div>
+    <h2>So öffnest Du Deine Sterne</h2>
+    <ol>
+      <li>Rufe <b>yma.one/universe</b> auf.</li>
+      <li>Gib Dein Passwort ein: <span class="pw"></span></li>
+      <li>Ab dem <b>1. Dezember</b> leuchtet jeden Tag ein neuer Stern für Dich. Tippe ihn an.</li>
+    </ol>
+    <div class="foot">
+      <span>yma.one</span>
+      <img src="/images/logo.svg" alt="yma" />
+    </div>
+  </div>
+</div>
+<script>
+  // ein paar Sterne in den Himmel streuen (fest, damit jede Karte gleich aussieht)
+  [[8,10],[22,18],[80,8],[90,22],[12,78],[30,88],[70,84],[88,70],[50,12],[6,45],[94,48],[62,92],[38,6],[18,60],[84,36]]
+    .forEach(([x, y]) => { const d = document.createElement('i'); d.className = 'dot'; d.style.left = x + '%'; d.style.top = y + '%'; document.querySelector('.left').appendChild(d); });
+</script>
+</body>
+</html>
