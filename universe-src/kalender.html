@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="robots" content="noindex" />
+<title>yma universe</title>
+<link rel="manifest" href="/universe/manifest.webmanifest" />
+<link rel="apple-touch-icon" href="/universe/icon-180.png" />
+<link rel="icon" type="image/png" href="/universe/icon-192.png" />
+<meta name="theme-color" content="#1b2a4e" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="yma universe" />
+<link rel="stylesheet" href="/fonts.css" />
+<style>
+  :root{
+    --night:#141f3d; --night2:#1f2d57; --violet:#3b2f63; --pink:#db5a90; --rose:#e386a1;
+    --turq:#3ba8a4; --gold:#f6d98a; --gold2:#ffeec2; --text:#eef1fb; --mut:#aeb7d6;
+    --disp:"Cormorant Garamond", Georgia, serif; --ui:"Poppins", system-ui, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{min-height:100%;background:#0d1530;}
+  body{
+    min-height:100vh; font-family:var(--ui); color:var(--text); line-height:1.65; -webkit-font-smoothing:antialiased;
+    background:#0d1530; overflow-x:hidden; padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
+  }
+  /* Nachthimmel als feste Ebene (funktioniert auch auf iPhone/iPad) */
+  .bg{position:fixed;inset:0;z-index:0;pointer-events:none;
+      background:radial-gradient(120% 80% at 50% 0%, var(--night2) 0%, var(--night) 55%, #0d1530 100%);}
+  /* Funkelnder Hintergrund */
+  .sky{position:fixed;inset:0;pointer-events:none;z-index:0;}
+  .sky i{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;opacity:.5;animation:tw 4s ease-in-out infinite;}
+  @keyframes tw{0%,100%{opacity:.15}50%{opacity:.8}}
+  .glow{position:fixed;inset:auto -20% -30% -20%;height:70%;pointer-events:none;z-index:0;
+    background:radial-gradient(50% 50% at 30% 60%, rgba(219,90,144,.18), transparent 70%),
+               radial-gradient(45% 45% at 75% 50%, rgba(59,168,164,.16), transparent 70%);}
+  main{position:relative;z-index:1;max-width:980px;margin:0 auto;padding:40px 20px 56px;text-align:center;}
+
+  .brand{font-family:var(--disp);font-style:italic;font-size:1.05rem;letter-spacing:.08em;color:var(--mut);}
+  h1{font-family:var(--disp);font-weight:500;font-size:clamp(2.6rem,9vw,4.4rem);line-height:1.05;margin:.2em 0 .15em;
+     background:linear-gradient(90deg,var(--gold2),var(--gold),var(--rose));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .sub{font-family:var(--disp);font-size:clamp(1.3rem,4.4vw,1.75rem);color:var(--text);}
+  .tag{color:var(--mut);font-size:.98rem;margin-top:.4rem;}
+  .status{margin:22px auto 0;max-width:520px;font-size:.92rem;color:var(--gold2);min-height:1.4em;}
+
+  /* Sternen-Raster */
+  .stars{margin:34px auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px 10px;max-width:760px;}
+  @media(min-width:640px){.stars{grid-template-columns:repeat(6,1fr);gap:22px 16px;}}
+  .star{position:relative;aspect-ratio:1;border:0;background:none;cursor:pointer;color:inherit;font:inherit;
+        display:grid;place-items:center;-webkit-tap-highlight-color:transparent;}
+  .star:nth-child(odd){transform:translateY(8px);} .star:nth-child(3n){transform:translateY(-6px);}
+  .star svg{position:absolute;inset:6%;width:88%;height:88%;transition:transform .35s ease, filter .35s ease;}
+  .star .num{position:relative;font-family:var(--disp);font-weight:600;font-size:clamp(1.1rem,4.2vw,1.45rem);margin-top:6%;}
+  .star.locked svg{fill:rgba(255,255,255,.06);stroke:rgba(255,255,255,.28);}
+  .star.locked .num{color:rgba(238,241,251,.5);}
+  .star.ready svg{fill:url(#gold);stroke:var(--gold2);filter:drop-shadow(0 0 10px rgba(246,217,138,.65));animation:pulse 2.6s ease-in-out infinite;}
+  .star.ready .num{color:#3a2a10;}
+  .star.open svg{fill:rgba(246,217,138,.22);stroke:var(--gold);filter:drop-shadow(0 0 6px rgba(246,217,138,.35));}
+  .star.open .num{color:var(--gold2);}
+  .star.today .num::after{content:"";position:absolute;left:50%;bottom:-10px;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:var(--pink);}
+  .star:hover svg,.star:focus-visible svg{transform:scale(1.08) rotate(-4deg);}
+  .star:focus-visible{outline:none;}
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+
+  .legend{margin-top:30px;font-size:.82rem;color:var(--mut);}
+
+  /* Inhalt eines Sterns */
+  .dlg{position:fixed;inset:0;z-index:10;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(8,12,30,.72);backdrop-filter:blur(6px);}
+  .dlg.show{display:flex;animation:fade .3s ease;}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  .card{position:relative;max-width:540px;width:100%;max-height:86vh;overflow:auto;text-align:left;
+        background:linear-gradient(160deg,#fffdf8,#fbf3f7);color:#2c3646;border-radius:22px;padding:34px 28px 28px;
+        box-shadow:0 30px 80px -20px rgba(0,0,0,.6);animation:rise .4s ease;}
+  @keyframes rise{from{transform:translateY(16px) scale(.98)}to{transform:none}}
+  .card .day{font-size:.74rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--pink);}
+  .card h2{font-family:var(--disp);font-weight:500;font-size:2rem;line-height:1.15;color:#284a7a;margin:.25em 0 .5em;}
+  .card p{margin:0 0 .9em;color:#4a5563;}
+  .card .impuls{margin-top:1.2em;padding:14px 16px;border-radius:14px;background:rgba(59,168,164,.1);color:#2c6f6c;font-size:.95rem;}
+  .card .impuls b{display:block;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:4px;}
+  .close{position:absolute;top:12px;right:14px;width:38px;height:38px;border-radius:50%;border:0;background:rgba(40,74,122,.08);color:#284a7a;font-size:1.4rem;cursor:pointer;}
+  .card.wait{text-align:center;}
+  .card.wait h2{font-size:1.6rem;}
+
+  /* Hinweis Startbildschirm */
+  .a2hs{position:relative;margin:34px auto 0;max-width:560px;text-align:left;font-size:.88rem;color:var(--text);
+        background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:16px 44px 16px 18px;}
+  .a2hs b{color:var(--gold2);font-weight:600;}
+  .a2hs .x{position:absolute;top:8px;right:10px;border:0;background:none;color:var(--mut);font-size:1.2rem;cursor:pointer;}
+  .a2hs[hidden]{display:none;}
+  footer{position:relative;z-index:1;text-align:center;padding:0 20px 34px;font-size:.78rem;color:var(--mut);}
+  footer a{color:var(--mut);}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"></div>
+<div class="sky" id="sky" aria-hidden="true"></div>
+<div class="glow" aria-hidden="true"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff3c9"/><stop offset=".55" stop-color="#f6d98a"/><stop offset="1" stop-color="#eab36a"/>
+    </linearGradient>
+    <symbol id="starshape" viewBox="0 0 100 100">
+      <path d="M50 4 L62 36 L96 38 L69 59 L79 93 L50 73 L21 93 L31 59 L4 38 L38 36 Z" stroke-width="2.4" stroke-linejoin="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<main>
+  <p class="brand">yma</p>
+  <h1>yma universe</h1>
+  <p class="sub">24 Sterne nur für Dich</p>
+  <p class="tag">Jeden Tag ein kleines Strahlen, das Dich trägt.</p>
+  <p class="status" id="status"></p>
+
+  <div class="stars" id="stars"></div>
+  <p class="legend">Ab dem 1. Dezember leuchtet jeden Tag ein neuer Stern für Dich auf. Tippe ihn an.</p>
+
+  <div class="a2hs" id="a2hs" hidden>
+    <button class="x" id="a2hsClose" aria-label="Hinweis schließen">×</button>
+    <span id="a2hsText"></span>
+  </div>
+</main>
+
+<footer>© 2026 Yvonne Müller-Andert · <a href="https://yma.one" target="_blank" rel="noopener">yma.one</a></footer>
+
+<div class="dlg" id="dlg" role="dialog" aria-modal="true" aria-labelledby="dlgTitle">
+  <div class="card" id="card">
+    <button class="close" id="close" aria-label="Schließen">×</button>
+    <div id="cardBody"></div>
+  </div>
+</div>
+
+<script>
+/* ===== Inhalte der 24 Sterne (werden beim Bauen eingesetzt) ===== */
+const INHALTE = /*INHALTE*/[];
+
+/* Reihenfolge der Sterne im Raster (bewusst gemischt, wie ein Sternenhimmel) */
+const ORDER = [7,1,18,12,3,22, 15,9,24,5,20,2, 11,17,4,13,8,21, 6,23,10,16,19,14];
+
+const $ = s => document.querySelector(s);
+const OPENED_KEY = 'yma-universe-opened';
+let opened = [];
+try { opened = JSON.parse(localStorage.getItem(OPENED_KEY) || '[]'); } catch (e) {}
+
+/* Heutiges Datum (Testmodus: ?tag=5 simuliert den 5. Dezember) */
+function today() {
+  const t = new URLSearchParams(location.search).get('tag');
+  if (t) return { month: 11, day: Math.max(0, Math.min(31, parseInt(t, 10) || 0)) };
+  const d = new Date();
+  return { month: d.getMonth(), day: d.getDate() };
+}
+function unlockedUpTo() {
+  const t = today();
+  if (t.month === 11) return t.day === 0 ? 0 : Math.min(24, t.day);
+  if (t.month === 0) return 24;     // Januar: alle bleiben offen
+  return 0;                         // vor Dezember
+}
+
+function render() {
+  const max = unlockedUpTo(), t = today();
+  const wrap = $('#stars'); wrap.innerHTML = '';
+  ORDER.forEach(n => {
+    const b = document.createElement('button');
+    b.className = 'star ' + (n > max ? 'locked' : (opened.includes(n) ? 'open' : 'ready'));
+    if (t.month === 11 && n === t.day) b.classList.add('today');
+    b.setAttribute('aria-label', 'Stern ' + n + (n > max ? ', noch verschlossen' : ''));
+    b.innerHTML = '<svg aria-hidden="true"><use href="#starshape"/></svg><span class="num">' + n + '</span>';
+    b.addEventListener('click', () => openStar(n, n <= max));
+    wrap.appendChild(b);
+  });
+  $('#status').textContent =
+    max === 0 ? 'Am 1. Dezember leuchtet Dein erster Stern auf. ✨'
+    : max >= 24 ? 'Alle 24 Sterne leuchten für Dich. ✨'
+    : 'Heute leuchtet Stern ' + max + ' für Dich. ✨';
+}
+
+function esc(s) { return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+function openStar(n, available) {
+  const body = $('#cardBody'), card = $('#card');
+  if (!available) {
+    card.className = 'card wait';
+    body.innerHTML = '<p class="day">Stern ' + n + '</p><h2 id="dlgTitle">Noch ein bisschen Geduld</h2>' +
+      '<p>Dieser Stern leuchtet für Dich ab dem ' + n + '. Dezember.</p>';
+  } else {
+    const c = INHALTE[n - 1] || { titel: 'Stern ' + n, text: ['Inhalt folgt.'] };
+    card.className = 'card';
+    body.innerHTML = '<p class="day">' + n + '. Dezember</p><h2 id="dlgTitle">' + esc(c.titel) + '</h2>' +
+      (c.text || []).map(p => '<p>' + esc(p) + '</p>').join('') +
+      (c.impuls ? '<div class="impuls"><b>Dein Impuls für heute</b>' + esc(c.impuls) + '</div>' : '');
+    if (!opened.includes(n)) {
+      opened.push(n);
+      try { localStorage.setItem(OPENED_KEY, JSON.stringify(opened)); } catch (e) {}
+    }
+  }
+  $('#dlg').classList.add('show');
+  $('#close').focus();
+}
+function closeDlg() { $('#dlg').classList.remove('show'); render(); }
+$('#close').addEventListener('click', closeDlg);
+$('#dlg').addEventListener('click', e => { if (e.target.id === 'dlg') closeDlg(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDlg(); });
+
+/* Funkelnde Pünktchen */
+(function () {
+  const sky = $('#sky');
+  for (let i = 0; i < 70; i++) {
+    const s = document.createElement('i');
+    s.style.left = Math.random() * 100 + '%';
+    s.style.top = Math.random() * 100 + '%';
+    s.style.animationDelay = (Math.random() * 4).toFixed(2) + 's';
+    if (Math.random() < .2) { s.style.width = s.style.height = '3px'; }
+    sky.appendChild(s);
+  }
+})();
+
+/* Hinweis „Zum Startbildschirm hinzufügen" */
+(function () {
+  const standalone = window.matchMedia('(display-mode: standalone)').matches || navigator.standalone;
+  let dismissed = false;
+  try { dismissed = localStorage.getItem('yma-universe-a2hs') === '1'; } catch (e) {}
+  if (standalone || dismissed) return;
+  const ua = navigator.userAgent;
+  const ios = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const android = /Android/.test(ua);
+  let txt;
+  if (ios) txt = '<b>Tipp:</b> Leg Dir Dein yma universe auf den Startbildschirm. Tippe in Safari unten auf <b>Teilen</b> (Quadrat mit Pfeil) und dann auf <b>„Zum Home-Bildschirm"</b>.';
+  else if (android) txt = '<b>Tipp:</b> Leg Dir Dein yma universe auf den Startbildschirm. Tippe in Chrome oben rechts auf <b>⋮</b> und dann auf <b>„Zum Startbildschirm hinzufügen"</b>.';
+  else txt = '<b>Tipp:</b> Am Handy kannst Du Dir Dein yma universe auf den Startbildschirm legen. Dann ist Dein Stern jeden Tag nur einen Tipp entfernt.';
+  $('#a2hsText').innerHTML = txt;
+  $('#a2hs').hidden = false;
+  $('#a2hsClose').addEventListener('click', () => {
+    $('#a2hs').hidden = true;
+    try { localStorage.setItem('yma-universe-a2hs', '1'); } catch (e) {}
+  });
+})();
+
+render();
+</script>
+</body>
+</html>

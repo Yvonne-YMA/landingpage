@@ -44,3 +44,12 @@ screenshots.zip
 
 # Source/reference PDFs (not part of the site)
 *.pdf
+
+# yma universe: echte Inhalte nie unverschlüsselt ins öffentliche Repository
+universe-src/inhalte.json
+
+# PDFs der Website dürfen ins Repository
+!public/**/*.pdf
+
+# yma universe: Testversion (Platzhalter, Testpasswort) erst zum Verkaufsstart freigeben
+public/universe/index.html
