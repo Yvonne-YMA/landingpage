@@ -53,3 +53,6 @@ universe-src/inhalte.json
 
 # yma universe: Testversion (Platzhalter, Testpasswort) erst zum Verkaufsstart freigeben
 public/universe/index.html
+
+# yma universe: Fotos nur verschlüsselt veröffentlichen
+universe-src/fotos/

@@ -87,9 +87,15 @@
   .card .content.more{-webkit-mask-image:linear-gradient(#000 82%,transparent);mask-image:linear-gradient(#000 82%,transparent);}
   .card .day{font-size:.78rem;font-weight:600;letter-spacing:.2em;color:var(--pink);margin:0 0 .3em;}
   .card h2{font-family:var(--disp);font-weight:500;font-size:clamp(1.1rem,4.4vw,1.6rem);line-height:1.15;color:#284a7a;margin:0 0 .4em;}
-  .card p{margin:0 0 .6em;font-size:clamp(.76rem,3.1vw,.92rem);line-height:1.5;}
+  .card p{margin:0 0 .6em;font-size:clamp(.76rem,3.1vw,.92rem);line-height:1.5;white-space:pre-line;}
+  .card .foto{display:block;width:82%;aspect-ratio:3/2;object-fit:cover;border-radius:12px;margin:.1em auto .7em;cursor:zoom-in;
+        box-shadow:0 4px 14px rgba(120,90,40,.18);background:#f3e7c8;}
   .card .impuls{margin-top:.5em;font-size:clamp(.74rem,3vw,.88rem);line-height:1.5;color:#2c6f6c;}
   .card .impuls b{display:block;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:2px;}
+  .zoom{position:fixed;inset:0;z-index:20;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(8,12,30,.92);cursor:zoom-out;}
+  .zoom.show{display:flex;animation:fade .25s ease;}
+  .zoom img{max-width:100%;max-height:100%;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5);}
+  .hello{margin-top:14px;border:0;background:none;color:var(--gold2);font:inherit;font-size:.86rem;text-decoration:underline;text-underline-offset:3px;cursor:pointer;}
   .close{position:fixed;top:calc(14px + env(safe-area-inset-top));right:14px;width:42px;height:42px;border-radius:50%;border:0;
          background:rgba(255,255,255,.14);color:#fff;font-size:1.5rem;cursor:pointer;z-index:11;}
 
@@ -129,6 +135,7 @@
 
   <div class="stars" id="stars"></div>
   <p class="legend" id="legend"></p>
+  <button class="hello" id="hello" hidden>Deine Begrüßung noch einmal lesen</button>
 
   <div class="a2hs" id="a2hs" hidden>
     <button class="x" id="a2hsClose" aria-label="Hinweis schließen">×</button>
@@ -149,9 +156,14 @@
   </div>
 </div>
 
+<div class="zoom" id="zoom" aria-hidden="true"><img id="zoomImg" alt="" /></div>
+
 <script>
 /* ===== Inhalte der 24 Sterne (werden beim Bauen eingesetzt) ===== */
-const INHALTE = /*INHALTE*/[];
+const DATEN = /*INHALTE*/[];
+/* Aufbau: { begruessung: {titel, text[]}, sterne: [24 × {titel, text[], fuerDich, foto}] } */
+const INHALTE = Array.isArray(DATEN) ? DATEN : (DATEN.sterne || []);
+const BEGRUESSUNG = Array.isArray(DATEN) ? null : DATEN.begruessung;
 
 /* Reihenfolge der Sterne im Raster (bewusst gemischt, wie ein Sternenhimmel) */
 const ORDER = [7,1,18,12,3,22, 15,9,24,5,20,2, 11,17,4,13,8,21, 6,23,10,16,19,14];
@@ -228,14 +240,20 @@ function openStar(n, available) {
       '<p>Dieser Stern leuchtet für Dich ab dem ' + n + '. Dezember.</p>';
   } else {
     const c = INHALTE[n - 1] || { titel: '', text: ['Inhalt folgt.'] };
+    const fuer = c.fuerDich || c.impuls;
     body.innerHTML = head(n) + '<h2 id="dlgTitle">' + esc(c.titel) + '</h2>' +
+      (c.foto ? '<img class="foto" src="' + c.foto + '" alt="Naturfoto zu Stern ' + n + '" />' : '') +
       (c.text || []).map(p => '<p>' + esc(p) + '</p>').join('') +
-      (c.impuls ? '<div class="impuls"><b>Dein Impuls für heute</b>' + esc(c.impuls) + '</div>' : '');
+      (fuer ? '<div class="impuls"><b>✨ Für Dich</b>' + esc(fuer) + '</div>' : '');
     if (!opened.includes(n)) {
       opened.push(n);
       try { localStorage.setItem(OPENED_KEY, JSON.stringify(opened)); } catch (e) {}
     }
   }
+  showCard();
+}
+function showCard() {
+  const body = $('#cardBody');
   $('#dlg').classList.add('show');
   body.scrollTop = 0;
   const more = () => body.classList.toggle('more', body.scrollTop + body.clientHeight < body.scrollHeight - 4);
@@ -243,9 +261,33 @@ function openStar(n, available) {
   $('#close').focus();
 }
 function closeDlg() { $('#dlg').classList.remove('show'); render(); }
+
+/* Begrüßung: beim ersten Öffnen, danach über den Knopf unter den Sternen */
+function openHello() {
+  $('#cardBody').innerHTML = '<p class="day">YMA UNIVERSE</p><h2 id="dlgTitle">' + esc(BEGRUESSUNG.titel || '') + '</h2>' +
+    (BEGRUESSUNG.text || []).map(p => '<p>' + esc(p) + '</p>').join('');
+  showCard();
+  try { localStorage.setItem('yma-universe-hello', '1'); } catch (e) {}
+}
+if (BEGRUESSUNG) {
+  $('#hello').hidden = false;
+  $('#hello').addEventListener('click', openHello);
+  let seen = false;
+  try { seen = localStorage.getItem('yma-universe-hello') === '1'; } catch (e) {}
+  if (!seen) setTimeout(openHello, 600);
+}
+
+/* Foto groß ansehen */
+$('#cardBody').addEventListener('click', e => {
+  if (e.target.classList.contains('foto')) { $('#zoomImg').src = e.target.src; $('#zoom').classList.add('show'); }
+});
+$('#zoom').addEventListener('click', () => $('#zoom').classList.remove('show'));
 $('#close').addEventListener('click', closeDlg);
 $('#dlg').addEventListener('click', e => { if (e.target.id === 'dlg' || e.target.closest('.starbg')) closeDlg(); });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDlg(); });
+document.addEventListener('keydown', e => {
+  if (e.key !== 'Escape') return;
+  if ($('#zoom').classList.contains('show')) $('#zoom').classList.remove('show'); else closeDlg();
+});
 
 /* Funkelnde Pünktchen */
 (function () {
