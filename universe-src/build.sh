@@ -26,7 +26,8 @@ for(const [i,s] of sterne.entries()){
   if(!fs.existsSync(src)){ console.warn("Hinweis: Foto fehlt für Stern "+(i+1)+": "+src); delete s.foto; continue; }
   if(!im) throw new Error("Für die Fotos wird ImageMagick benötigt (magick oder convert).");
   const out=path.join(tmp,"f"+(i+1)+".jpg");
-  cp.execFileSync(im,[src,"-auto-orient","-resize","900x900>","-strip","-interlace","Plane","-quality","72",out]);
+  const crop=s.fotoAusschnitt?["-crop",s.fotoAusschnitt,"+repage"]:[]; delete s.fotoAusschnitt;
+  cp.execFileSync(im,[src,"-auto-orient",...crop,"-resize","720x480^","-gravity","center","-extent","720x480","-strip","-interlace","Plane","-quality","80",out]);
   const b=fs.readFileSync(out); kb+=b.length/1024;
   s.foto="data:image/jpeg;base64,"+b.toString("base64");
 }
