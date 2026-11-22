@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex" />
+<title>yma universe – Geschenkkarte</title>
+<link rel="icon" type="image/png" href="/universe/icon-192.png" />
+<link rel="stylesheet" href="/fonts.css" />
+<style>
+  :root{--night:#141f3d;--gold:#f6d98a;--gold2:#fff3c9;--pink:#db5a90;--blue:#284a7a;--cream:#fffdf8;--mut:#6d7787;
+        --disp:"Cormorant Garamond",Georgia,serif;--ui:"Poppins",system-ui,sans-serif;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{background:#0d1530}
+  body{font-family:var(--ui);color:#eef1fb;background:radial-gradient(120% 60% at 50% 0%,#1f2d57 0%,#141f3d 55%,#0d1530 100%) no-repeat #0d1530;min-height:100vh;
+       -webkit-font-smoothing:antialiased}
+  .sky{position:fixed;inset:0;pointer-events:none}
+  .sky i{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;opacity:.45}
+  main{position:relative;max-width:1000px;margin:0 auto;padding:36px 16px 60px;text-align:center}
+  .brand{font-family:var(--disp);font-style:italic;color:#aeb7d6;letter-spacing:.08em}
+  h1{font-family:var(--disp);font-weight:500;font-size:clamp(2.2rem,8vw,3.4rem);line-height:1.05;margin:.15em 0 .2em;
+     background:linear-gradient(90deg,var(--gold2),var(--gold),#e386a1);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{font-family:var(--disp);font-size:clamp(1.15rem,4vw,1.4rem);max-width:560px;margin:0 auto}
+  .form{max-width:560px;margin:28px auto 0;text-align:left;display:grid;gap:14px}
+  label{font-size:.82rem;color:var(--gold2);display:block;margin-bottom:5px}
+  label small{color:#aeb7d6}
+  input,textarea{width:100%;font:inherit;font-size:16px;color:#1d2433;background:#fffdf8;border:0;border-radius:12px;padding:11px 14px}
+  textarea{resize:vertical;min-height:70px}
+  .hint{font-size:.78rem;color:#aeb7d6;margin-top:4px}
+  .btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:24px 0 8px}
+  .btn{border:0;border-radius:999px;padding:12px 22px;font:inherit;font-weight:600;cursor:pointer;text-decoration:none}
+  .btn.p{background:var(--pink);color:#fff;box-shadow:0 6px 18px rgba(219,90,144,.35)}
+  .btn.s{background:rgba(255,255,255,.1);color:#eef1fb;border:1px solid rgba(255,255,255,.25)}
+  .note{font-size:.8rem;color:#aeb7d6;max-width:560px;margin:6px auto 0}
+  .previewwrap{margin:30px auto 0;width:100%;max-width:840px}
+  .previewlbl{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:#aeb7d6;margin-bottom:10px}
+  .scaler{width:100%;aspect-ratio:210/148;position:relative;overflow:hidden;border-radius:14px;box-shadow:0 20px 50px rgba(0,0,0,.45)}
+  .scaler .card{position:absolute;left:0;top:0;transform-origin:0 0}
+  footer{text-align:center;font-size:.78rem;color:#aeb7d6;padding:0 16px 30px}
+  footer a{color:#aeb7d6}
+
+  /* ===== Die Karte (A5 quer) ===== */
+  .card{width:210mm;height:148mm;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;text-align:left;color:#2c3646;
+        background:linear-gradient(135deg,#fffdf8 0%,#fdf7ec 55%,#fbf1f5 100%);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .card .left{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:12mm 10mm;
+        background:radial-gradient(80% 70% at 50% 40%,#233466 0%,#172449 60%,#10193a 100%);color:#eef1fb}
+  .card .dot{position:absolute;width:1.1mm;height:1.1mm;border-radius:50%;background:#fff;opacity:.55}
+  .card svg{width:40mm;height:40mm;filter:drop-shadow(0 0 5mm rgba(246,217,138,.6))}
+  .card h2{font-family:var(--disp);font-weight:500;font-size:29pt;line-height:1;margin-top:5mm;color:var(--gold)}
+  .card .sub{font-family:var(--disp);font-size:15pt;margin-top:2mm}
+  .card .tag{font-size:8.3pt;color:#c3cbe6;margin-top:2mm}
+  .card .right{padding:12mm 13mm 10mm;display:flex;flex-direction:column}
+  .card .kick{font-size:7.5pt;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--pink)}
+  .card .lines{margin-top:5mm}
+  .card .line{display:flex;align-items:flex-end;gap:3mm;margin-bottom:4.5mm;font-family:var(--disp);font-size:14pt;color:var(--blue)}
+  .card .fill{flex:1;border-bottom:.3mm solid #c9b98f;min-height:6mm;font-size:15pt;font-style:italic;color:#1d2433;padding:0 1mm .6mm}
+  .card .gruss{font-family:var(--disp);font-style:italic;font-size:12.5pt;line-height:1.3;color:#1d2433;margin:0 0 3.5mm;min-height:0}
+  .card h3{font-family:var(--disp);font-weight:500;font-size:14.5pt;color:var(--blue);margin-top:1mm}
+  .card ol{list-style:none;margin-top:2.5mm;counter-reset:s}
+  .card li{position:relative;padding-left:7mm;margin-bottom:2.3mm;font-size:8.6pt;line-height:1.45;counter-increment:s}
+  .card li::before{content:counter(s);position:absolute;left:0;top:.2mm;width:4.6mm;height:4.6mm;border-radius:50%;background:var(--gold);
+        color:#3a2a10;font-size:7pt;font-weight:600;display:grid;place-items:center}
+  .card li b{color:var(--blue)}
+  .card .pw{display:block;width:100%;border-bottom:.3mm solid #c9b98f;min-height:6.5mm;font-size:11pt;font-weight:600;color:#1d2433;padding-top:1mm;letter-spacing:.04em}
+  .card .foot{margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;font-size:7.5pt;color:var(--mut)}
+  .card .foot b{font-family:var(--disp);font-style:italic;font-size:13pt;color:var(--blue);font-weight:500}
+
+  @page{size:A5 landscape;margin:0}
+  @media print{
+    html,body{background:#fff;width:210mm;height:148mm}
+    .sky,main>*:not(.previewwrap),footer,.previewlbl{display:none!important}
+    main{padding:0;max-width:none}
+    .previewwrap{margin:0;max-width:none}
+    .scaler{width:210mm;height:148mm;aspect-ratio:auto;border-radius:0;box-shadow:none;overflow:visible}
+    .scaler .card{transform:none!important}
+  }
+</style>
+</head>
+<body>
+<div class="sky" id="sky" aria-hidden="true"></div>
+<main>
+  <p class="brand">yma</p>
+  <h1>Ein Stern zum Verschenken</h1>
+  <p class="lead">Gestalte hier Deine Geschenkkarte für das yma universe – zum Ausdrucken oder als PDF zum Weiterschicken.</p>
+
+  <div class="form">
+    <div><label for="fuer">Für</label><input id="fuer" maxlength="40" placeholder="Name der Beschenkten" autocomplete="off"></div>
+    <div><label for="von">Von</label><input id="von" maxlength="40" placeholder="Dein Name" autocomplete="off"></div>
+    <div><label for="gruss">Dein Gruß <small>(optional)</small></label><textarea id="gruss" maxlength="140" placeholder="Ein paar liebe Worte …"></textarea></div>
+    <div><label for="pw">Passwort <small>(optional)</small></label><input id="pw" maxlength="40" placeholder="aus Deiner Kaufbestätigung" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <p class="hint">Bleibt nur auf Deinem Gerät und wird nirgendwohin gesendet. Leer lassen, wenn Du es lieber von Hand einträgst.</p></div>
+  </div>
+
+  <div class="btns">
+    <button class="btn p" id="print">Karte drucken / als PDF speichern</button>
+    <button class="btn s" id="leer">Leere Karte zum Ausfüllen</button>
+  </div>
+  <p class="note">Tipp: Im Druckfenster „Als PDF speichern“ wählen, dann kannst Du die Karte auch per Mail oder Messenger verschenken.</p>
+
+  <div class="previewwrap">
+    <p class="previewlbl">Vorschau</p>
+    <div class="scaler" id="scaler">
+      <div class="card" id="card">
+        <div class="left" id="left">
+          <svg viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff3c9"/><stop offset=".55" stop-color="#f6d98a"/><stop offset="1" stop-color="#eab36a"/></linearGradient></defs>
+            <path d="M50 4 L62 36 L96 38 L69 59 L79 93 L50 73 L21 93 L31 59 L4 38 L38 36 Z" fill="url(#g)" stroke="#fff3c9" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          <h2>yma universe</h2>
+          <p class="sub">24 Sterne nur für Dich</p>
+          <p class="tag">Jeden Tag ein kleines Strahlen, das Dich trägt.</p>
+        </div>
+        <div class="right">
+          <p class="kick">Ein Geschenk für Dich</p>
+          <div class="lines">
+            <div class="line">Für <span class="fill" id="cFuer"></span></div>
+            <div class="line">Von <span class="fill" id="cVon"></span></div>
+          </div>
+          <p class="gruss" id="cGruss"></p>
+          <h3>So öffnest Du Deine Sterne</h3>
+          <ol>
+            <li>Rufe <b>yma.one/universe</b> auf.</li>
+            <li>Gib Dein Passwort ein: <span class="pw" id="cPw"></span></li>
+            <li>Ab dem <b>1. Dezember</b> leuchtet jeden Tag ein neuer Stern für Dich. Tippe ihn an.</li>
+          </ol>
+          <div class="foot"><span>yma.one</span><b>yma</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<footer>© 2026 Yvonne Müller-Andert · <a href="https://yma.one">yma.one</a></footer>
+<script>
+const $ = s => document.getElementById(s);
+[[8,10],[22,18],[80,8],[90,22],[12,78],[30,88],[70,84],[88,70],[50,12],[6,45],[94,48],[62,92],[38,6],[18,60],[84,36]]
+  .forEach(([x,y]) => { const d=document.createElement('i'); d.className='dot'; d.style.left=x+'%'; d.style.top=y+'%'; $('left').appendChild(d); });
+for (let i=0;i<60;i++){ const s=document.createElement('i'); s.style.left=Math.random()*100+'%'; s.style.top=Math.random()*100+'%'; $('sky').appendChild(s); }
+const map = { fuer:'cFuer', von:'cVon', gruss:'cGruss', pw:'cPw' };
+function sync(){ for (const k in map) $(map[k]).textContent = $(k).value.trim(); }
+Object.keys(map).forEach(k => $(k).addEventListener('input', sync));
+function fit(){ const w=$('scaler').clientWidth, cw=$('card').offsetWidth; $('card').style.transform='scale('+(w/cw)+')'; }
+window.addEventListener('resize', fit); fit();
+$('print').addEventListener('click', () => { sync(); window.print(); });
+$('leer').addEventListener('click', () => {
+  const saved = {}; for (const k in map){ saved[k]=$(k).value; $(map[k]).textContent=''; }
+  window.print();
+  setTimeout(sync, 500);
+});
+</script>
+</body>
+</html>
