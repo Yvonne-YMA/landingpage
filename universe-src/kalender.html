@@ -108,6 +108,7 @@
   .a2hs .install{display:block;margin-top:10px;border:0;border-radius:999px;padding:9px 18px;background:var(--pink);color:#fff;font:inherit;font-weight:600;cursor:pointer;}
   footer{position:relative;z-index:1;text-align:center;padding:0 20px 34px;font-size:.78rem;color:var(--mut);}
   footer a{color:var(--mut);}
+  footer a.gift{display:inline-block;margin-bottom:14px;color:var(--gold2);text-decoration:none;border:1px solid rgba(246,217,138,.4);border-radius:999px;padding:8px 18px;font-size:.86rem;}
 </style>
 </head>
 <body>
@@ -143,7 +144,7 @@
   </div>
 </main>
 
-<footer>© 2026 Yvonne Müller-Andert · <a href="https://yma.one" target="_blank" rel="noopener">yma.one</a></footer>
+<footer><a class="gift" href="/universe/geschenk/">Ein Strahlen verschenken ✨</a><br>© 2026 Yvonne Müller-Andert · <a href="https://yma.one" target="_blank" rel="noopener">yma.one</a></footer>
 
 <div class="dlg" id="dlg" role="dialog" aria-modal="true" aria-labelledby="dlgTitle">
   <button class="close" id="close" aria-label="Schließen">×</button>
@@ -183,7 +184,7 @@ function today() {
 function unlockedUpTo() {
   const t = today();
   if (t.month === 11) return t.day === 0 ? 0 : Math.min(24, t.day);
-  if (t.month === 0) return 24;     // Januar: alle bleiben offen
+  if (t.month <= 10 && !new URLSearchParams(location.search).get('tag') && new Date().getFullYear() > 2026) return 24; // ab Januar: alle bleiben offen
   return 0;                         // vor Dezember
 }
 
