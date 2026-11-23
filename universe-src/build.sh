@@ -40,7 +40,7 @@ npx --yes staticrypt@3.5.4 "$TMP/index.html" \
   --template-title "yma universe" \
   --template-instructions "Bitte gib hier Dein Passwort ein. Du findest es in Deiner Kaufbestätigung oder auf Deiner Geschenkkarte." \
   --template-placeholder "Passwort" \
-  --template-button "Zeig mir meine Sterne ✨" \
+  --template-button "Zeig mir meine Sterne" \
   --template-remember "Auf diesem Gerät angemeldet bleiben" \
   --template-error "Das Passwort stimmt leider nicht." \
   --template-toggle-show "Passwort anzeigen" --template-toggle-hide "Passwort verbergen" \

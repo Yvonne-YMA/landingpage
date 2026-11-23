@@ -90,7 +90,8 @@
   .card p{margin:0 0 .6em;font-size:clamp(.76rem,3.1vw,.92rem);line-height:1.5;white-space:pre-line;}
   .card .foto{display:block;width:82%;aspect-ratio:3/2;object-fit:cover;border-radius:12px;margin:.1em auto .7em;cursor:zoom-in;
         box-shadow:0 4px 14px rgba(120,90,40,.18);background:#f3e7c8;}
-  .card .content.gruss{width:70%;}
+  .card .content.gruss{width:70%;top:53%;}
+  .card .content.gruss .day{margin-bottom:.9em;}
   .card .content.gruss p{font-size:clamp(.72rem,2.9vw,.9rem);}
   .card .impuls{margin-top:.5em;font-size:clamp(.74rem,3vw,.88rem);line-height:1.5;color:#2c6f6c;}
   .card .impuls b{display:block;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:2px;}
@@ -226,7 +227,7 @@ function render() {
     : max >= 24 ? 'Alle 24 Sterne leuchten für Dich.'
     : 'Heute leuchtet Stern ' + max + ' für Dich.';
   $('#legend').textContent =
-    max === 0 ? 'Ab dem 1. Dezember leuchtet jeden Tag ein neuer Stern für Dich auf.'
+    max === 0 ? ''
     : max >= 24 ? 'Tippe Deine Sterne gern immer wieder an.'
     : 'Tippe auf einen leuchtenden Stern, um ihn zu öffnen.';
 }
