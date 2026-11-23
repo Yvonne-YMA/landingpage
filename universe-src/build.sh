@@ -6,7 +6,7 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 : "${STATICRYPT_PASSWORD:?Bitte STATICRYPT_PASSWORD setzen}"
-INHALTE=inhalte.json; [ -f "$INHALTE" ] || INHALTE=inhalte.beispiel.json
+INHALTE=${INHALTE:-inhalte.json}; [ -f "$INHALTE" ] || INHALTE=inhalte.beispiel.json
 TMP=$(mktemp -d)
 # Fotos: liegen in universe-src/fotos/ (NICHT im Repository, siehe .gitignore).
 # Sie werden verkleinert, von Metadaten (z. B. GPS-Standort) befreit und
@@ -38,7 +38,7 @@ npx --yes staticrypt@3.5.4 "$TMP/index.html" \
   -c .staticrypt.json -d "$TMP/out" --short --remember 90 \
   -t passwort-vorlage.html \
   --template-title "yma universe" \
-  --template-instructions "Gib hier Dein Passwort ein. Du findest es in Deiner Kaufbestätigung oder auf Deiner Geschenkkarte." \
+  --template-instructions "Bitte gib hier Dein Passwort ein. Du findest es in Deiner Kaufbestätigung oder auf Deiner Geschenkkarte." \
   --template-placeholder "Passwort" \
   --template-button "Sterne öffnen ✨" \
   --template-remember "Auf diesem Gerät angemeldet bleiben" \

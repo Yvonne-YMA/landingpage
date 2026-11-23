@@ -90,6 +90,8 @@
   .card p{margin:0 0 .6em;font-size:clamp(.76rem,3.1vw,.92rem);line-height:1.5;white-space:pre-line;}
   .card .foto{display:block;width:82%;aspect-ratio:3/2;object-fit:cover;border-radius:12px;margin:.1em auto .7em;cursor:zoom-in;
         box-shadow:0 4px 14px rgba(120,90,40,.18);background:#f3e7c8;}
+  .card .content.gruss{width:70%;}
+  .card .content.gruss p{font-size:clamp(.72rem,2.9vw,.9rem);}
   .card .impuls{margin-top:.5em;font-size:clamp(.74rem,3vw,.88rem);line-height:1.5;color:#2c6f6c;}
   .card .impuls b{display:block;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:2px;}
   .zoom{position:fixed;inset:0;z-index:20;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(8,12,30,.92);cursor:zoom-out;}
@@ -261,11 +263,12 @@ function showCard() {
   body.onscroll = more; requestAnimationFrame(more);
   $('#close').focus();
 }
-function closeDlg() { $('#dlg').classList.remove('show'); render(); }
+function closeDlg() { $('#dlg').classList.remove('show'); $('#cardBody').classList.remove('gruss'); render(); }
 
 /* Begrüßung: beim ersten Öffnen, danach über den Knopf unter den Sternen */
 function openHello() {
-  $('#cardBody').innerHTML = '<p class="day">YMA UNIVERSE</p><h2 id="dlgTitle">' + esc(BEGRUESSUNG.titel || '') + '</h2>' +
+  $('#cardBody').classList.add('gruss');
+  $('#cardBody').innerHTML = '<h2 id="dlgTitle">' + esc(BEGRUESSUNG.titel || '') + '</h2>' +
     (BEGRUESSUNG.text || []).map(p => '<p>' + esc(p) + '</p>').join('');
   showCard();
   try { localStorage.setItem('yma-universe-hello', '1'); } catch (e) {}
