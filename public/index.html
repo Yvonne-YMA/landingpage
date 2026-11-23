@@ -268,6 +268,30 @@
   .plan-body .ust-note{font-size:.78rem;font-style:italic;line-height:1.5;margin-top:auto;padding-top:22px;color:var(--turq-d);}
   .plan.feat .plan-body .ust-note{color:var(--pink);}
 
+
+  /* ── yma universe (Advent) ── */
+  .uni{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 50% 0%,#1f2d57 0%,#141f3d 55%,#0d1530 100%);color:#eef1fb;}
+  .uni::after{content:"";position:absolute;inset:auto -20% -40% -20%;height:70%;pointer-events:none;
+    background:radial-gradient(50% 50% at 30% 60%,rgba(219,90,144,.18),transparent 70%),radial-gradient(45% 45% at 75% 50%,rgba(59,168,164,.16),transparent 70%);}
+  .uni .sky i{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;opacity:.45;}
+  .uni .wrap{position:relative;z-index:1;}
+  .uni .head h2::after{background:linear-gradient(90deg,#f6d98a,#e8c27a)!important;}
+  .uni .head{text-align:center;max-width:640px;margin:0 auto 44px;}
+  .uni .kick{color:#f6d98a;}
+  .uni h2{font-family:var(--disp);font-weight:600;font-size:clamp(2.4rem,5vw,3.4rem);margin-top:10px;line-height:1.05;
+    background:linear-gradient(90deg,#fff3c9,#f6d98a 55%,#e8c27a);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .uni .head .sub{font-family:var(--disp);font-style:italic;font-size:clamp(1.3rem,2.6vw,1.6rem);color:#f6e3b4;margin-top:8px;}
+  .uni .head .tag{font-family:var(--disp);font-weight:600;font-size:clamp(1.1rem,2.2vw,1.3rem);color:#f3e6c4;margin-top:4px;}
+  .uni .plan{border-color:rgba(246,217,138,.28);box-shadow:0 34px 70px -40px rgba(0,0,0,.6);max-width:920px;margin:0 auto;}
+  .uni .plan-aside{background:linear-gradient(160deg,#fff8ea 0%,#fbeef4 100%);}
+  .uni .plan h3{color:var(--navy);}
+  .uni .plan .sub{color:var(--pink);}
+  .uni .plan .price{color:var(--pink);border-top-color:rgba(219,90,144,.25);}
+  .uni .plan-body li::before{background:rgba(246,217,138,.28);}
+  .uni .plan-body li::after{background:#e8b75c;}
+  .uni .plan-body .ust-note{color:var(--pink);}
+  .uni .gift{display:inline-block;margin:4px 0 0;font-size:.9rem;font-weight:600;color:var(--pink);text-decoration:none;}
+  .uni .gift:hover{text-decoration:underline;}
   /* ── CTA band ── */
   .band{background:linear-gradient(100deg,#eaf3fb 0%,#eff8f4 46%,#fdeef4 100%);color:var(--ink);position:relative;overflow:hidden;}
   .band .wrap{text-align:center;padding:80px 30px;}
@@ -375,6 +399,47 @@
     </div>
   </div>
 </section>
+
+<!-- ══ YMA UNIVERSE (Advent, Entwurf) ══ -->
+<section class="uni" id="universe">
+  <div class="sky" id="uniSky" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="head">
+      <span class="kick">Neu im Advent</span>
+      <h2>yma universe</h2>
+      <p class="sub">24 Sterne nur für Dich</p>
+      <p class="tag">Jeden Tag ein kleines Strahlen, das Dich trägt.</p>
+    </div>
+    <div class="plan feat">
+      <div class="plan-aside">
+        <h3>yma universe</h3>
+        <div class="sub">24 Sterne<br>nur für Dich</div>
+        <div class="price price-invest">
+          <span class="price-kick">Dein Geschenk an Dich</span>
+          <span class="price-amt">22,22 €*</span>
+          <span class="price-once">einmalig<br>für 24 Sterne im Advent</span>
+        </div>
+        <a href="https://buy.stripe.com/14AcN766I73ycig8HwbII03" target="_blank" rel="noopener" class="btn">Jetzt buchen&nbsp;♡</a>
+      </div>
+      <div class="plan-body">
+        <p>Vom 1. bis 24. Dezember öffnet sich jeden Tag ein Stern, nur für Dich: mit einem Gedicht, einem Impuls oder einer kleinen Übung zum Innehalten, dazu eines meiner Naturfotos.</p>
+        <p>Eine Minute für Dich, mitten in einer vollen Zeit. Kein Muss, keine To-do-Liste. Nur ein kleines Strahlen, das Dich durch den Advent trägt.</p>
+        <ul>
+          <li>24 Sterne vom 1. bis 24. Dezember, jeden Tag ein neuer</li>
+          <li>Gedichte, Impulse &amp; kleine Übungen mit meinen Naturfotos</li>
+          <li>Sofortiger Zugang per Link &amp; Passwort, am Handy wie eine kleine App</li>
+          <li>Deine Sterne bleiben Dir mindestens bis zum 27.01.2027</li>
+          <li>Auch als Geschenk möglich, für eine Person</li>
+        </ul>
+        <a href="/universe/geschenk/" class="gift">Geschenkkarte ansehen →</a>
+        <a href="https://buy.stripe.com/14AcN766I73ycig8HwbII03" target="_blank" rel="noopener" class="btn plan-cta-mobile">Jetzt buchen&nbsp;♡</a>
+        <p class="ust-note">* Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<script>(function(){var s=document.getElementById('uniSky');for(var i=0;i<60;i++){var e=document.createElement('i');e.style.left=Math.random()*100+'%';e.style.top=Math.random()*100+'%';s.appendChild(e);}})();</script>
+
 
 <!-- ══ THEMEN (3 immersive cards) ══ -->
 <section class="themes" id="themen">
