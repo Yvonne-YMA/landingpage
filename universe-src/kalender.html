@@ -130,7 +130,6 @@
 </svg>
 
 <main>
-  <p class="brand">yma</p>
   <h1>yma universe</h1>
   <p class="sub">24 Sterne nur für Dich</p>
   <p class="tag">Jeden Tag ein kleines Strahlen,<br class="br-m"> das Dich trägt.</p>
@@ -268,7 +267,7 @@ function closeDlg() { $('#dlg').classList.remove('show'); $('#cardBody').classLi
 /* Begrüßung: beim ersten Öffnen, danach über den Knopf unter den Sternen */
 function openHello() {
   $('#cardBody').classList.add('gruss');
-  $('#cardBody').innerHTML = '<h2 id="dlgTitle">' + esc(BEGRUESSUNG.titel || '') + '</h2>' +
+  $('#cardBody').innerHTML = '<p class="day">YMA UNIVERSE</p><h2 id="dlgTitle">' + esc(BEGRUESSUNG.titel || '') + '</h2>' +
     (BEGRUESSUNG.text || []).map(p => '<p>' + esc(p) + '</p>').join('');
   showCard();
   try { localStorage.setItem('yma-universe-hello', '1'); } catch (e) {}
