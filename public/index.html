@@ -464,6 +464,11 @@
     </div>
   </div>
 </section>
+<script>(function(){var base=document.title,uni='yma universe - 24 Sterne nur für Dich',sec=document.getElementById('universe');
+function upd(on){document.title=on?uni:base;}
+if(/^#universe/.test(location.hash))upd(true);
+if('IntersectionObserver' in window&&sec){new IntersectionObserver(function(e){upd(e[0].isIntersecting);},{threshold:.35}).observe(sec);}
+})();</script>
 <script>(function(){var s=document.getElementById('uniSky');for(var i=0;i<60;i++){var e=document.createElement('i');e.style.left=Math.random()*100+'%';e.style.top=Math.random()*100+'%';s.appendChild(e);}})();</script>
 
 
