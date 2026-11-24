@@ -275,7 +275,7 @@
   .uni-pill svg{width:12px;height:12px;filter:drop-shadow(0 0 3px rgba(246,217,138,.8));}
   .uni-pill:hover{background:#141f3d;}
   @media(max-width:999px){ .uni-pill{margin-left:auto;} header .book{margin-left:0;} }
-  @media(min-width:1000px){ .uni-pill{margin-left:0;} }
+  @media(min-width:1000px){ .uni-pill{margin-left:auto;margin-right:auto;} nav.main{margin-left:0;} }
   @media(max-width:480px){ .uni-pill .up-yma{display:none;} header .wrap{gap:10px;} .uni-pill{padding:7px 11px;font-size:.95rem;} }
   @media(max-width:345px){ .brand .logo{width:78px;} .brand-tag{display:none;} .uni-pill{padding:6px 9px;} }
   @media(max-width:400px){ .brand .logo{width:96px;} .brand-tag{font-size:.62rem;margin-top:-8px;} header .book{padding:9px 13px;font-size:.74rem;} }
@@ -295,6 +295,7 @@
     background:linear-gradient(90deg,#fff3c9,#f6d98a 55%,#e8c27a);-webkit-background-clip:text;background-clip:text;color:transparent;}
   .uni .head .sub{font-family:var(--disp);font-style:italic;font-weight:500;font-size:clamp(1.55rem,3vw,1.95rem);color:#f6e3b4;margin-top:10px;}
   .uni .head .tag{font-family:var(--disp);font-weight:600;font-size:clamp(1.3rem,2.6vw,1.6rem);color:#f3e6c4;margin-top:6px;line-height:1.3;}
+  #universe-angebot{scroll-margin-top:100px;}
   .uni .plan{border-color:rgba(246,217,138,.28);box-shadow:0 34px 70px -40px rgba(0,0,0,.6);max-width:920px;margin:0 auto;}
   .uni .plan-aside{background:linear-gradient(160deg,#fff8ea 0%,#fbeef4 100%);}
   .uni .plan h3{color:var(--navy);}
@@ -376,13 +377,13 @@
 <header>
   <div class="wrap">
     <a href="#top" class="brand" aria-label="yma – your mindful alignment"><img class="logo" src="images/yma_logo.svg" alt="yma" /><span class="brand-tag">your mindful alignment</span></a>
+    <a href="#universe-angebot" class="uni-pill"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 L62 36 L96 38 L69 59 L79 93 L50 73 L21 93 L31 59 L4 38 L38 36 Z" fill="#f6d98a"/></svg><span><span class="up-yma">yma </span>universe</span></a>
     <nav class="main">
       <a href="#themen">Für Dich</a>
       <a href="#weg">Mein Ansatz</a>
       <a href="#ueber">Meine Motivation</a>
       <a href="#begleitung">Dein Weg</a>
     </nav>
-    <a href="#universe" class="uni-pill"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 L62 36 L96 38 L69 59 L79 93 L50 73 L21 93 L31 59 L4 38 L38 36 Z" fill="#f6d98a"/></svg><span><span class="up-yma">yma </span>universe</span></a>
     <a href="#begleitung" class="btn book">Zurück zu Dir&nbsp;♡</a>
   </div>
 </header>
@@ -428,7 +429,7 @@
       <p class="sub">24 Sterne nur für Dich</p>
       <p class="tag">Jeden Tag ein kleines Strahlen,<br>das Dich trägt.</p>
     </div>
-    <div class="plan feat">
+    <div class="plan feat" id="universe-angebot">
       <div class="plan-aside">
         <h3>yma universe</h3>
         <div class="sub">24 Sterne<br>nur für Dich</div>
