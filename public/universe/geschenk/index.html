@@ -46,9 +46,9 @@
         background:radial-gradient(80% 70% at 50% 40%,#233466 0%,#172449 60%,#10193a 100%);color:#eef1fb}
   .card .dot{position:absolute;width:1.1mm;height:1.1mm;border-radius:50%;background:#fff;opacity:.55}
   .card svg{width:40mm;height:40mm;filter:drop-shadow(0 0 5mm rgba(246,217,138,.6))}
-  .card h2{font-family:var(--disp);font-weight:500;font-size:29pt;line-height:1;margin-top:5mm;color:var(--gold)}
-  .card .sub{font-family:var(--disp);font-size:15pt;margin-top:2mm}
-  .card .tag{font-size:8.3pt;color:#c3cbe6;margin-top:2mm}
+  .card h2{font-family:var(--disp);font-weight:600;font-size:31pt;line-height:1;margin-top:5mm;background:linear-gradient(90deg,#fff3c9,#f6d98a 55%,#e8c27a);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .card .sub{font-family:var(--disp);font-style:italic;font-weight:500;font-size:17pt;color:#f6e3b4;margin-top:2.5mm}
+  .card .tag{font-family:var(--disp);font-weight:600;font-size:13pt;line-height:1.25;color:#f3e6c4;margin-top:2mm}
   .card .right{padding:12mm 13mm 10mm;display:flex;flex-direction:column}
   .card .kick{font-size:7.5pt;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--pink)}
   .card .lines{margin-top:5mm}
@@ -63,6 +63,9 @@
   .card li b{color:var(--blue)}
   .card .pw{display:block;width:100%;border-bottom:.3mm solid #c9b98f;min-height:6.5mm;font-size:11pt;font-weight:600;color:#1d2433;padding-top:1mm;letter-spacing:.04em}
   .card .foot{margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;font-size:7.5pt;color:var(--mut)}
+  .card .foot .logo{display:flex;flex-direction:column;align-items:center}
+  .card .foot .logo img{width:22mm;height:auto}
+  .card .foot .logo i{font-family:var(--disp);font-size:7pt;color:var(--mut);margin-top:-1.6mm;letter-spacing:.03em}
   .card .foot b{font-family:var(--disp);font-style:italic;font-size:13pt;color:var(--blue);font-weight:500}
 
   @page{size:A5 landscape;margin:0}
@@ -106,10 +109,10 @@
             <path d="M50 4 L62 36 L96 38 L69 59 L79 93 L50 73 L21 93 L31 59 L4 38 L38 36 Z" fill="url(#g)" stroke="#fff3c9" stroke-width="1.5" stroke-linejoin="round"/></svg>
           <h2>yma universe</h2>
           <p class="sub">24 Sterne nur für Dich</p>
-          <p class="tag">Jeden Tag ein kleines Strahlen, das Dich trägt.</p>
+          <p class="tag">Jeden Tag ein kleines Strahlen,<br>das Dich trägt.</p>
         </div>
         <div class="right">
-          <p class="kick">Ein Geschenk für Dich</p>
+          <p class="kick">Ein Leuchten für Dich</p>
           <div class="lines">
             <div class="line">Für <span class="fill" id="cFuer"></span></div>
             <div class="line">Von <span class="fill" id="cVon"></span></div>
@@ -119,9 +122,9 @@
           <ol>
             <li>Rufe <b>yma.one/universe</b> auf.</li>
             <li>Gib Dein Passwort ein: <span class="pw" id="cPw"></span></li>
-            <li>Ab dem <b>1. Dezember</b> leuchtet jeden Tag ein neuer Stern für Dich. Tippe ihn an.</li>
+            <li>Ab dem <b>1. Dezember</b> leuchtet dann dort jeden Tag ein neuer Stern für Dich. Tippe ihn zum Öffnen an.</li>
           </ol>
-          <div class="foot"><span>yma.one</span><img src="/images/logo.svg" alt="yma" style="width:22mm;height:auto"></div>
+          <div class="foot"><span>yma.one</span><span class="logo"><img src="/images/logo.svg" alt="yma"><i>your mindful alignment</i></span></div>
         </div>
       </div>
     </div>
