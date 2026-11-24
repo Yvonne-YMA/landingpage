@@ -19,8 +19,9 @@
   main{position:relative;max-width:1000px;margin:0 auto;padding:36px 16px 60px;text-align:center}
   .brand{font-family:var(--disp);font-style:italic;color:#aeb7d6;letter-spacing:.08em}
   h1{font-family:var(--disp);font-weight:500;font-size:clamp(2.2rem,8vw,3.4rem);line-height:1.05;margin:.15em 0 .2em;
-     background:linear-gradient(90deg,var(--gold2),var(--gold),#e386a1);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .lead{font-family:var(--disp);font-size:clamp(1.15rem,4vw,1.4rem);max-width:560px;margin:0 auto}
+     background:linear-gradient(90deg,#fff3c9,#f6d98a 55%,#e8c27a);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{font-family:var(--disp);font-weight:500;font-size:clamp(1.2rem,4vw,1.45rem);line-height:1.35;color:#f3e6c4;max-width:560px;margin:0 auto}
+  .lead b{font-weight:700;color:#f6e3b4;white-space:nowrap}
   .form{max-width:560px;margin:28px auto 0;text-align:left;display:grid;gap:14px}
   label{font-size:.82rem;color:var(--gold2);display:block;margin-bottom:5px}
   label small{color:#aeb7d6}
@@ -82,9 +83,8 @@
 <body>
 <div class="sky" id="sky" aria-hidden="true"></div>
 <main>
-  <p class="brand">yma</p>
   <h1>24 Sterne zum Verschenken</h1>
-  <p class="lead">Gestalte hier Deine Geschenkkarte für das yma universe – zum Ausdrucken oder als PDF zum Weiterschicken.</p>
+  <p class="lead">Gestalte hier Deine Geschenkkarte für das <b>yma universe</b>,<br>zum Ausdrucken oder als PDF zum Weiterschicken.</p>
 
   <div class="form">
     <div><label for="fuer">Für</label><input id="fuer" maxlength="40" placeholder="Name der Beschenkten" autocomplete="off"></div>
