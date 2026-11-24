@@ -93,6 +93,7 @@
   .card .content.gruss{width:70%;top:53%;}
   .card .content.gruss .day{margin-bottom:.9em;}
   .card .content.gruss{width:74%;}
+  .card .content.gruss strong{font-weight:600;color:#284a7a;}
   .card .content.gruss p{font-size:clamp(.68rem,2.75vw,.88rem);}
   .card .impuls{margin-top:.5em;font-size:clamp(.74rem,3vw,.88rem);line-height:1.5;color:#2c6f6c;}
   .card .impuls b{display:block;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:2px;}
@@ -270,7 +271,7 @@ function closeDlg() { $('#dlg').classList.remove('show'); $('#cardBody').classLi
 function openHello() {
   $('#cardBody').classList.add('gruss');
   $('#cardBody').innerHTML = '<p class="day">YMA UNIVERSE</p><h2 id="dlgTitle">' + esc(BEGRUESSUNG.titel || '') + '</h2>' +
-    (BEGRUESSUNG.text || []).map(p => '<p>' + esc(p) + '</p>').join('');
+    (BEGRUESSUNG.text || []).map(p => '<p>' + esc(p).replace(/^(24 kleine Sterne,?)/, '<strong>$1</strong>') + '</p>').join('');
   showCard();
   try { localStorage.setItem('yma-universe-hello', '1'); } catch (e) {}
 }
