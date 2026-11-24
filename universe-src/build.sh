@@ -38,7 +38,7 @@ npx --yes staticrypt@3.5.4 "$TMP/index.html" \
   -c .staticrypt.json -d "$TMP/out" --short --remember 90 \
   -t passwort-vorlage.html \
   --template-title "yma universe" \
-  --template-instructions "Bitte gib hier Dein Passwort ein. Du findest es in Deiner Kaufbestätigung oder auf Deiner Geschenkkarte." \
+  --template-instructions "Bitte gib hier Dein Passwort ein.<br>Du findest es in Deiner Kaufbestätigung oder auf Deiner Geschenkkarte." \
   --template-placeholder "Passwort" \
   --template-button "Zeig mir meine Sterne" \
   --template-remember "Auf diesem Gerät angemeldet bleiben" \
