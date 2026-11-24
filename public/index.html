@@ -270,6 +270,19 @@
 
 
   /* ── yma universe (Advent) ── */
+  .uni-pill{display:inline-flex;align-items:center;gap:6px;flex:none;padding:7px 13px;border-radius:999px;background:#1f2d57;color:#f6e3b4;
+    font-family:var(--disp);font-style:italic;font-weight:600;font-size:1rem;line-height:1;white-space:nowrap;box-shadow:0 8px 18px -10px rgba(20,31,61,.6);}
+  .uni-pill svg{width:12px;height:12px;filter:drop-shadow(0 0 3px rgba(246,217,138,.8));}
+  .uni-pill:hover{background:#141f3d;}
+  @media(max-width:999px){ .uni-pill{margin-left:auto;} header .book{margin-left:0;} }
+  @media(min-width:1000px){ .uni-pill{margin-left:0;} }
+  @media(max-width:480px){ .uni-pill .up-yma{display:none;} header .wrap{gap:10px;} .uni-pill{padding:7px 11px;font-size:.95rem;} }
+  @media(max-width:345px){ .brand .logo{width:78px;} .brand-tag{display:none;} .uni-pill{padding:6px 9px;} }
+  @media(max-width:400px){ .brand .logo{width:96px;} .brand-tag{font-size:.62rem;margin-top:-8px;} header .book{padding:9px 13px;font-size:.74rem;} }
+  .uni .plan .btn{background:#1f2d57;color:#f6e3b4;box-shadow:0 14px 30px -14px rgba(20,31,61,.6);}
+  .uni .plan .btn:hover{background:#141f3d;}
+  .uni .plan-body > p:first-child strong{color:var(--navy);}
+
   .uni{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 50% 0%,#1f2d57 0%,#141f3d 55%,#0d1530 100%);color:#eef1fb;}
   .uni::after{content:"";position:absolute;inset:auto -20% -40% -20%;height:70%;pointer-events:none;
     background:radial-gradient(50% 50% at 30% 60%,rgba(219,90,144,.18),transparent 70%),radial-gradient(45% 45% at 75% 50%,rgba(59,168,164,.16),transparent 70%);}
@@ -369,6 +382,7 @@
       <a href="#ueber">Meine Motivation</a>
       <a href="#begleitung">Dein Weg</a>
     </nav>
+    <a href="#universe" class="uni-pill"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 L62 36 L96 38 L69 59 L79 93 L50 73 L21 93 L31 59 L4 38 L38 36 Z" fill="#f6d98a"/></svg><span><span class="up-yma">yma </span>universe</span></a>
     <a href="#begleitung" class="btn book">Zurück zu Dir&nbsp;♡</a>
   </div>
 </header>
