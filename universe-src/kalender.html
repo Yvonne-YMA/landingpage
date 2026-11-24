@@ -224,8 +224,8 @@ function render() {
     b.addEventListener('click', () => openStar(n, n <= max));
     wrap.appendChild(b);
   });
-  $('#status').textContent =
-    max === 0 ? 'Am 1. Dezember leuchtet Dein erster Stern auf.'
+  $('#status').innerHTML =
+    max === 0 ? 'Am 1. Dezember<br class="br-m"> leuchtet Dein erster Stern auf.'
     : max >= 24 ? 'Alle 24 Sterne leuchten für Dich.'
     : 'Heute leuchtet Stern ' + max + ' für Dich.';
   $('#legend').textContent =
