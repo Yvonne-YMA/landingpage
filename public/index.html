@@ -281,10 +281,24 @@
   @media(max-width:400px){ .brand .logo{width:96px;} .brand-tag{font-size:.62rem;margin-top:-8px;} header .book{padding:9px 13px;font-size:.74rem;} }
   .uni .plan .btn{background:#1f2d57;color:#f6e3b4;box-shadow:0 14px 30px -14px rgba(20,31,61,.6);}
   .uni .plan .btn:hover{background:#141f3d;}
-  @media(max-width:759px){ .uni .head{margin-bottom:30px;} .uni .head .tag{margin-top:4px;} .uni .plan-aside .btn{align-self:flex-start;padding-left:30px;padding-right:30px;} }
+  @media(max-width:759px){
+    section.uni{padding:48px 0 64px;}
+    .uni .head{margin-bottom:18px;}
+    .uni .kick{font-size:.68rem;}
+    .uni h2{font-size:2.2rem;margin-top:2px;}
+    .uni .head h2::after{margin-top:10px;}
+    .uni .head .sub{font-size:1.42rem;margin-top:6px;}
+    .uni .head .tag{font-size:1.22rem;margin-top:2px;}
+    .uni .plan-aside{padding:20px 26px 26px;gap:7px;}
+    .uni .plan h3{font-size:1.9rem;}
+    .uni .plan .price-invest .price-amt{font-size:2.1rem;}
+    .uni .plan .price-invest .price-once{margin-top:4px;line-height:1.4;}
+    .uni .plan-aside .btn{align-self:flex-start;padding-left:30px;padding-right:30px;margin-top:8px;}
+  }
+  @media(min-width:760px){ section.uni{padding:64px 0 90px;} .uni .head{margin-bottom:22px;} .uni h2{margin-top:6px;} .uni .head h2::after{margin-top:12px;} .uni .head .sub{margin-top:4px;} .uni .plan-aside{padding-top:26px;gap:10px;} .uni .plan-aside .btn{margin-top:16px;} }
   .uni .plan-body p,.uni .plan-body li,.uni .plan-body strong{color:var(--navy);}
 
-  .uni{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 50% 0%,#1f2d57 0%,#141f3d 55%,#0d1530 100%);color:#eef1fb;}
+  .uni{position:relative;overflow:hidden;overflow:clip;background:radial-gradient(120% 90% at 50% 0%,#1f2d57 0%,#141f3d 55%,#0d1530 100%);color:#eef1fb;}
   .uni::after{content:"";position:absolute;inset:auto -20% -40% -20%;height:70%;pointer-events:none;
     background:radial-gradient(50% 50% at 30% 60%,rgba(219,90,144,.18),transparent 70%),radial-gradient(45% 45% at 75% 50%,rgba(59,168,164,.16),transparent 70%);}
   .uni .sky i{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;opacity:.45;}
@@ -296,8 +310,7 @@
     background:linear-gradient(90deg,#fff3c9,#f6d98a 55%,#e8c27a);-webkit-background-clip:text;background-clip:text;color:transparent;}
   .uni .head .sub{font-family:var(--disp);font-style:italic;font-weight:500;font-size:clamp(1.55rem,3vw,1.95rem);color:#f6e3b4;margin-top:10px;}
   .uni .head .tag{font-family:var(--disp);font-weight:600;font-size:clamp(1.3rem,2.6vw,1.6rem);color:#f3e6c4;margin-top:6px;line-height:1.3;}
-  #universe-angebot{scroll-margin-top:358px;}
-  @media(min-width:760px){ #universe-angebot{scroll-margin-top:488px;} .uni .plan h3{font-size:2.1rem;white-space:nowrap;} }
+  @media(min-width:760px){ .uni .plan h3{font-size:2.1rem;white-space:nowrap;} }
   .uni .plan{border-color:rgba(246,217,138,.28);box-shadow:0 34px 70px -40px rgba(0,0,0,.6);max-width:920px;margin:0 auto;}
   .uni .plan-aside{background:linear-gradient(160deg,#fff8ea 0%,#fbeef4 100%);}
   .uni .plan h3{color:var(--navy);font-size:clamp(2rem,3.4vw,2.6rem);line-height:1.05;}
@@ -466,6 +479,15 @@
     </div>
   </div>
 </section>
+<script>(function(){
+function jump(smooth){var sec=document.getElementById('universe');if(sec)sec.scrollTop=0;var k=document.querySelector('#universe .kick'),c=document.getElementById('universe-angebot'),b=c&&c.querySelector('.plan-aside .btn'),h=document.querySelector('header');if(!k||!b)return;
+ var H=h?h.offsetHeight:0,Y=window.scrollY,kt=k.getBoundingClientRect().top+Y,bb=b.getBoundingClientRect().bottom+Y,ct=c.getBoundingClientRect().top+Y;
+ var y=(bb-kt+12+10<=window.innerHeight-H)?kt-H-12:ct-H-16;window.scrollTo({top:y,behavior:smooth?'smooth':'instant'});}
+document.querySelectorAll('a[href="#universe-angebot"],a[href="#universe"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();history.replaceState(null,'','#universe-angebot');jump(true);});});
+if(/^#universe/.test(location.hash)){var moved=false;['wheel','touchstart','keydown'].forEach(function(t){window.addEventListener(t,function(){moved=true;},{passive:true,once:true});});
+ var go=function(){if(!moved)jump(false);};
+ window.addEventListener('load',function(){go();(document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(go);setTimeout(go,500);setTimeout(go,1300);});}
+})();</script>
 <script>(function(){var base=document.title,uni='yma universe - 24 Sterne nur für Dich',sec=document.getElementById('universe');
 function upd(on){document.title=on?uni:base;}
 if(/^#universe/.test(location.hash))upd(true);
