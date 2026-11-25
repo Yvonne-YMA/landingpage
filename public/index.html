@@ -482,7 +482,7 @@
 <script>(function(){
 function jump(smooth){var sec=document.getElementById('universe');if(sec)sec.scrollTop=0;var k=document.querySelector('#universe .kick'),c=document.getElementById('universe-angebot'),b=c&&c.querySelector('.plan-aside .btn'),h=document.querySelector('header');if(!k||!b)return;
  var H=h?h.offsetHeight:0,Y=window.scrollY,kt=k.getBoundingClientRect().top+Y,bb=b.getBoundingClientRect().bottom+Y,ct=c.getBoundingClientRect().top+Y;
- var y=(bb-kt+12+10<=window.innerHeight-H)?kt-H-12:ct-H-16;window.scrollTo({top:y,behavior:smooth?'smooth':'instant'});}
+ var y=kt-H-12;window.scrollTo({top:y,behavior:smooth?'smooth':'instant'});}
 document.querySelectorAll('a[href="#universe-angebot"],a[href="#universe"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();history.replaceState(null,'','#universe-angebot');jump(true);});});
 if(/^#universe/.test(location.hash)){var moved=false;['wheel','touchstart','keydown'].forEach(function(t){window.addEventListener(t,function(){moved=true;},{passive:true,once:true});});
  var go=function(){if(!moved)jump(false);};
