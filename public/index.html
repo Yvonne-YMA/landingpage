@@ -495,7 +495,7 @@ function jump(smooth){var sec=document.getElementById('universe');if(!sec)return
  var bt=sec.querySelector('.plan-aside .btn'),po=sec.querySelector('.price-once');
  var bb=bt?bt.getBoundingClientRect().bottom+Y:0,pb=po?po.getBoundingClientRect().bottom+Y:0;
  var fits=function(bot){return bot+10-vh<=tt-H-2;};
- if(bt&&bb+14-vh<=ideal){y=ideal;}
+ if(bt&&bb+14-vh<=ideal){y=ideal;var mn=bb+10-vh;for(var d1=0;d1<=80;d1+=2){var c1=[ideal-d1,ideal+d1],hit=false;for(var q=0;q<2;q++){var v=c1[q];if(v>=lo&&v<=hi&&v>=mn&&clean(v)){y=v;hit=true;break;}}if(hit)break;}}
  else if(bt&&fits(bb)){y=Math.max(bb+10-vh,lo);}
  else if(po&&fits(pb)){y=Math.max(pb+14-vh,lo);if(!clean(y)){for(var d2=2;d2<=40;d2+=2){if(y+d2<=tt-H-8&&clean(y+d2)){y+=d2;break;}}}}
  else{for(var d=0;d<=160;d+=2){var c=[ideal+d,ideal-d],ok=false;for(var ci=0;ci<2;ci++){if(c[ci]>=lo&&c[ci]<=hi&&clean(c[ci])){y=c[ci];ok=true;break;}}if(ok)break;}}
