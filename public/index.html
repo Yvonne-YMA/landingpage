@@ -295,6 +295,7 @@
     .uni .plan .price-invest .price-once{margin-top:4px;line-height:1.4;}
     .uni .plan-aside .btn{align-self:flex-start;padding-left:30px;padding-right:30px;margin-top:8px;}
   }
+  @media(max-width:759px) and (max-height:620px){ .uni .plan-aside .btn{margin-top:20px;} }
   @media(min-width:760px){ section.uni{padding:64px 0 90px;} .uni .head{margin-bottom:22px;} .uni h2{margin-top:6px;} .uni .head h2::after{margin-top:12px;} .uni .head .sub{margin-top:4px;} .uni .plan-aside{padding-top:26px;gap:10px;} .uni .plan-aside .btn{margin-top:16px;} }
   .uni .plan-body p,.uni .plan-body li,.uni .plan-body strong{color:var(--navy);}
 
@@ -480,9 +481,26 @@
   </div>
 </section>
 <script>(function(){
-function jump(smooth){var sec=document.getElementById('universe');if(sec)sec.scrollTop=0;var k=document.querySelector('#universe .kick'),c=document.getElementById('universe-angebot'),b=c&&c.querySelector('.plan-aside .btn'),h=document.querySelector('header');if(!k||!b)return;
- var H=h?h.offsetHeight:0,Y=window.scrollY,kt=k.getBoundingClientRect().top+Y,bb=b.getBoundingClientRect().bottom+Y,ct=c.getBoundingClientRect().top+Y;
- var y=kt-H-12;window.scrollTo({top:y,behavior:smooth?'smooth':'instant'});}
+function jump(smooth){var sec=document.getElementById('universe');if(!sec)return;sec.scrollTop=0;
+ var h=document.querySelector('header'),H=h?h.offsetHeight:0,vh=window.innerHeight,Y=window.scrollY;
+ var k=sec.querySelector('.kick'),t=sec.querySelector('h2');if(!k||!t)return;
+ var R=[],add=function(r){if(r.height>2)R.push([r.top+Y,r.bottom+Y]);};
+ [].slice.call(sec.querySelectorAll('.kick,h2,.head .sub,.tag,.plan h3,.plan-aside .sub,.price-kick,.price-amt,.price-once,.plan-aside .btn,.plan-body p,.plan-body li,.gift,.ust-note')).forEach(function(e){
+  if(e.offsetParent===null)return;
+  if(/^(H2|H3|A)$/.test(e.tagName)||e.classList.contains('btn')){add(e.getBoundingClientRect());return;}
+  var rg=document.createRange();rg.selectNodeContents(e);[].slice.call(rg.getClientRects()).forEach(add);});
+ var st=sec.getBoundingClientRect().top+Y,kt=k.getBoundingClientRect().top+Y,tt=t.getBoundingClientRect().top+Y;
+ var clean=function(y){var a=y+H,b=y+vh;for(var n=0;n<R.length;n++){var e=R[n];if(e[0]<b-1&&e[1]>b+1)return false;if(e[1]>a-6&&e[0]<a+6)return false;}return true;};
+ var ideal=kt-H-12,lo=st-H+4,hi=tt-H-12,y=ideal;
+ var bt=sec.querySelector('.plan-aside .btn'),po=sec.querySelector('.price-once');
+ var bb=bt?bt.getBoundingClientRect().bottom+Y:0,pb=po?po.getBoundingClientRect().bottom+Y:0;
+ var fits=function(bot){return bot+10-vh<=tt-H-2;};
+ if(bt&&bb+14-vh<=ideal){y=ideal;}
+ else if(bt&&fits(bb)){y=Math.max(bb+10-vh,lo);}
+ else if(po&&fits(pb)){y=Math.max(pb+14-vh,lo);if(!clean(y)){for(var d2=2;d2<=40;d2+=2){if(y+d2<=tt-H-8&&clean(y+d2)){y+=d2;break;}}}}
+ else{for(var d=0;d<=160;d+=2){var c=[ideal+d,ideal-d],ok=false;for(var ci=0;ci<2;ci++){if(c[ci]>=lo&&c[ci]<=hi&&clean(c[ci])){y=c[ci];ok=true;break;}}if(ok)break;}}
+ var kb=k.getBoundingClientRect().bottom+Y;if(kt-y<H&&kb-y>H-6){y=kb-H+6;}
+ window.scrollTo({top:y,behavior:smooth?'smooth':'instant'});}
 document.querySelectorAll('a[href="#universe-angebot"],a[href="#universe"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();history.replaceState(null,'','#universe-angebot');jump(true);});});
 if(/^#universe/.test(location.hash)){var moved=false;['wheel','touchstart','keydown'].forEach(function(t){window.addEventListener(t,function(){moved=true;},{passive:true,once:true});});
  var go=function(){if(!moved)jump(false);};
