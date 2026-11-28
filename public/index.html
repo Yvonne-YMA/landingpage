@@ -328,6 +328,10 @@
   .uni .plan-body li::before{background:rgba(246,217,138,.28);}
   .uni .plan-body li::after{background:#e8b75c;}
   .uni .plan .ust-note{color:var(--pink);}
+  .uni .plan-body ul.sublist{margin:8px 0 2px;}
+  .uni .plan-body ul.sublist li{padding-left:18px;margin-bottom:5px;font-size:.88rem;}
+  .uni .plan-body ul.sublist li::before{display:none;}
+  .uni .plan-body ul.sublist li::after{left:3px;top:.62em;width:7px;height:2px;border-radius:2px;background:#e8b75c;}
   .uni .plan-body ul.stars3{margin:0 0 16px;}
   .uni .plan-body ul.stars3 li{margin-bottom:6px;}
   .uni .plan-body ul.stars3 li::before{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 4 L62 36 L96 38 L69 59 L79 93 L50 73 L21 93 L31 59 L4 38 L38 36 Z' fill='%23e8b75c'/%3E%3C/svg%3E") center/contain no-repeat;border-radius:0;width:13px;height:13px;top:5px;left:1px;}
@@ -472,7 +476,7 @@
       </div>
       <div class="plan-body">
         <p class="uni-claim">Mitten im vollen Advent: jeden Tag ein Moment nur für Dich.</p>
-        <p><strong>Vom 1. bis 24. Dezember 2026 öffnet sich jeden Tag ein Stern, nur für Dich:</strong> täglich ein kleiner, zauberhafter Moment des Lebens, entdeckt mit meiner Kamera, verbunden mit einem Gedicht oder Impuls &amp; mindestens einem kleinen Moment für Dich.</p>
+        <p><strong>Vom 1. bis 24. Dezember 2026 öffnet sich jeden Tag ein Stern, nur für Dich.</strong></p>
         <ul class="stars3">
           <li>Zum Ankommen &amp; Innehalten,</li>
           <li>zum Dasein &amp; Dich wahrnehmen,</li>
@@ -481,7 +485,12 @@
         <p>Kein Du musst, sondern ein <strong>Du darfst</strong>. Nur Du und ein Stern, der für Dich leuchtet und Dich mit seinem kleinen Strahlen durch den Advent trägt.</p>
         <ul>
           <li>24 Sterne vom 1. bis 24. Dezember 2026, jeden Tag ein neuer</li>
-          <li>Jeden Tag ein paar Minuten nur für Dich: eine Frage zum Reinspüren oder eine kleine Einladung</li>
+          <li>Jeden Tag ein paar Minuten nur für Dich, zum Ankommen &amp; Reinspüren:
+            <ul class="sublist">
+              <li>ein kleiner, zauberhafter Moment des Lebens für Deine Augen</li>
+              <li>Worte als Gedicht oder Impuls für Dein Herz &amp; Deinen Geist</li>
+              <li>eine kleine Frage oder Einladung für Deinen Körper &amp; Deine Seele</li>
+            </ul></li>
           <li>Sofortiger Zugang per Link &amp; Passwort</li>
           <li>Auch als Symbol auf dem Startbildschirm Deines Handys möglich</li>
           <li>Deine Sterne bleiben Dir mindestens bis zum 27.01.2027</li>
@@ -503,14 +512,15 @@ function jump(smooth){var sec=document.getElementById('universe');if(!sec)return
  [].slice.call(sec.querySelectorAll('.kick,h2,.head .sub,.tag,.plan h3,.plan-aside .sub,.price-kick,.price-amt,.price-once,.plan-aside .btn,.plan-body p,.plan-body li,.gift,.ust-note')).forEach(function(e){
   if(e.offsetParent===null)return;
   if(/^(H2|H3|A)$/.test(e.tagName)||e.classList.contains('btn')){add(e.getBoundingClientRect());return;}
-  var rg=document.createRange();rg.selectNodeContents(e);[].slice.call(rg.getClientRects()).forEach(add);});
+  var rg=document.createRange();rg.selectNodeContents(e);[].slice.call(rg.getClientRects()).forEach(function(r){if(r.height<48)add(r);});});
  var st=sec.getBoundingClientRect().top+Y,kt=k.getBoundingClientRect().top+Y,tt=t.getBoundingClientRect().top+Y;
  var clean=function(y){var a=y+H,b=y+vh;for(var n=0;n<R.length;n++){var e=R[n];if(e[0]<b-1&&e[1]>b+1)return false;if(e[1]>a-6&&e[0]<a+6)return false;}return true;};
+ var cleanB=function(y){var b=y+vh;for(var n=0;n<R.length;n++){var e=R[n];if(e[0]<b-1&&e[1]>b+1)return false;}return true;};
  var ideal=kt-H-12,lo=st-H+4,hi=tt-H-12,y=ideal;
  var bt=sec.querySelector('.plan-aside .btn'),po=sec.querySelector('.price-once');
  var bb=bt?bt.getBoundingClientRect().bottom+Y:0,pb=po?po.getBoundingClientRect().bottom+Y:0;
  var fits=function(bot){return bot+10-vh<=tt-H-2;};
- if(bt&&bb+14-vh<=ideal){y=ideal;var mn=bb+10-vh;for(var d1=0;d1<=80;d1+=2){var c1=[ideal-d1,ideal+d1],hit=false;for(var q=0;q<2;q++){var v=c1[q];if(v>=lo&&v<=hi&&v>=mn&&clean(v)){y=v;hit=true;break;}}if(hit)break;}}
+ if(bt&&bb+14-vh<=ideal){y=ideal;var mn=bb+10-vh,hit=false;for(var pass=0;pass<3&&!hit;pass++){var hx=pass<2?hi:tt-H-2;for(var d1=0;d1<=160;d1+=2){var c1=[ideal-d1,ideal+d1];for(var q=0;q<2;q++){var v=c1[q];if(v>=lo&&v<=hx&&v>=mn&&(pass==1?cleanB(v):clean(v))){y=v;hit=true;break;}}if(hit)break;}}}
  else if(bt&&fits(bb)){y=Math.max(bb+10-vh,lo);}
  else if(po&&fits(pb)){y=Math.max(pb+14-vh,lo);if(!clean(y)){for(var d2=2;d2<=40;d2+=2){if(y+d2<=tt-H-8&&clean(y+d2)){y+=d2;break;}}}}
  else{for(var d=0;d<=160;d+=2){var c=[ideal+d,ideal-d],ok=false;for(var ci=0;ci<2;ci++){if(c[ci]>=lo&&c[ci]<=hi&&clean(c[ci])){y=c[ci];ok=true;break;}}if(ok)break;}}
