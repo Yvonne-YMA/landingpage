@@ -173,7 +173,8 @@
   .about .wrap{display:grid;grid-template-columns:1fr;gap:50px;align-items:center;}
   @media(min-width:880px){ .about .wrap{grid-template-columns:.82fr 1.18fr;} }
   .portrait-ph{aspect-ratio:4/5;border-radius:26px;background-size:cover;background-position:center;box-shadow:0 30px 60px -44px rgba(90,110,150,.5);}
-  .portrait-wrap{position:relative;}
+  .portrait-wrap{position:relative;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;}
+  .portrait-wrap .portrait-ph{-webkit-user-drag:none;}
   .portrait-wrap .portrait-ph{border-radius:50%;}
   .portrait-wrap::before,.portrait-wrap::after{content:"";position:absolute;background-size:contain;background-repeat:no-repeat;pointer-events:none;}
   .portrait-wrap::before{left:4px;bottom:4px;width:24px;height:24px;background-image:url('images/deko_kleeblatt.png?v=6');}
@@ -486,7 +487,7 @@
           <li>Deine Sterne bleiben Dir mindestens bis zum 27.01.2027</li>
           <li>Für Dich oder als Geschenk; ein Zugang gilt für eine Person</li>
         </ul>
-        <figure class="uni-peek"><img src="images/universe_einblick.jpg" width="640" height="640" loading="lazy" alt="Ein geöffneter Stern im yma universe: 1. Dezember, Der Zauber des Anfangs, mit Foto von Krokussen im Herbstlaub"><figcaption>Ein Blick in Deinen ersten Stern</figcaption></figure>
+        <figure class="uni-peek"><img src="images/universe_einblick.jpg" width="640" height="640" loading="lazy" alt="Ein geöffneter Stern im yma universe: 1. Dezember, Der Zauber des Anfangs, mit Foto von Krokussen im Herbstlaub"><figcaption>Ein kleiner Blick in Deinen ersten Stern</figcaption></figure>
         <a href="/universe/geschenk/" class="gift">Sterne verschenken →</a>
         <a href="https://buy.stripe.com/14AcN766I73ycig8HwbII03" target="_blank" rel="noopener" class="btn plan-cta-mobile">Jetzt buchen&nbsp;♡</a>
         <p class="ust-note">* Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.</p>
@@ -597,7 +598,7 @@ if('IntersectionObserver' in window&&sec){new IntersectionObserver(function(e){u
 <!-- ══ ÜBER ══ -->
 <section class="about" id="ueber">
   <div class="wrap">
-    <div class="portrait-wrap"><div class="portrait-ph" style="background-image:url('images/yvonne_2026.jpg')"></div></div>
+    <div class="portrait-wrap" oncontextmenu="return false" aria-label="Porträt von Yvonne Müller-Andert" role="img"><div class="portrait-ph" style="background-image:url('images/yvonne_2026.jpg')"></div></div>
     <div>
       <span class="kick p">Darum begleite ich Dich</span>
       <div class="q">
